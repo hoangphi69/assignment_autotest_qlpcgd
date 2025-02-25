@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="TestNGTest-66c07bd3-e123-459e-837c-25d55305a0ad"
+           tests="1"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="9.062">
+    <properties></properties>
+
+
+
+            <testcase
+                name="TC01_ValidEditMajor"
+                time="9.062"
+                classname="MajorManagement.F0403_EditMajor">
+            </testcase>
+</testsuite>

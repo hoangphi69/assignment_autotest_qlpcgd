@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="TestNGTest-c8083f03-0339-4b6b-9c3f-46c10bfce671"
+           tests="1"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="1.787">
+    <properties></properties>
+
+
+
+            <testcase
+                name="TC01_ListMajorsPage2"
+                time="1.787"
+                classname="MajorManagement.F0401_ListMajors">
+            </testcase>
+</testsuite>

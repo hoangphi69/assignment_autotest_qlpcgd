@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="TestNGTest-ce5ef91b-2db7-4eec-aaa4-f8c124a1033f"
+           tests="1"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="15.011">
+    <properties></properties>
+
+
+
+            <testcase
+                name="TC01_ValidAddMajor"
+                time="15.011"
+                classname="F0101">
+            </testcase>
+</testsuite>

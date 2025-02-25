@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="TestNGTest-e7882cff-0e52-495b-b9c9-ee8510dacdce"
+           tests="2"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="9.483">
+    <properties></properties>
+
+
+
+            <testcase
+                name="testAddCookies"
+                time="4.366"
+                classname="b">
+            </testcase>
+            <testcase
+                name="testGetCookies"
+                time="5.117"
+                classname="b">
+            </testcase>
+</testsuite>

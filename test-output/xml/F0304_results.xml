@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="TestNGTest-0948b91d-eb94-4576-9a05-25600f716f93"
+           tests="1"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="12.141">
+    <properties></properties>
+
+
+
+            <testcase
+                name="TC01_ValidSearch"
+                time="12.141"
+                classname="F0304">
+            </testcase>
+</testsuite>
