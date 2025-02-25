@@ -32,7 +32,7 @@ public class F0403_EditMajor extends MajorPage {
 
     for (WebElement button : editButtons) {
       // Lấy giá trị của thuộc tính onclick
-      String onclickValue = button.getAttribute("onclick");
+      String onclickValue = button.getDomAttribute("onclick");
 
       // Trích xuất ID từ chuỗi onclick
       Pattern pattern = Pattern.compile("/Phancong02/Major/Edit/(\\d+)");
