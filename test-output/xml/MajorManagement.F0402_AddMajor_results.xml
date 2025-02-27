@@ -1,17 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="TestNGTest-c4700579-3c61-441e-afab-c63d620b2eea"
-           tests="1"
-           failures="0"
+<testsuite name="TestNGTest-c59dbdc6-97f8-465c-a303-e5a7bf656b83"
+           tests="8"
+           failures="1"
            errors="0"
            skipped="0"
-           time="4.439">
+           time="45.678">
     <properties></properties>
 
+            <testcase
+                name="TC08_TypeBlank"
+                time="13.359"
+                classname="MajorManagement.F0402_AddMajor">
+
+            <failure type="org.openqa.selenium.NoSuchElementException" message="Unable to locate element: .//li[text()=&apos;&apos;]
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: &apos;4.29.0&apos;, revision: &apos;5fc1ec94cb&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;22&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [b13e018f-244f-4b5d-a59e-ba58d04903f0, findChildElement {value=.//li[text()=&apos;&apos;], using=xpath, id=72421812-3f47-4411-bb92-0603d2af155f}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 135.0.1, moz:accessibilityChecks: false, moz:buildID: 20250216192613, moz:geckodriverVersion: 0.36.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 23880, moz:profile: C:\Users\tient\AppData\Loca..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: b13e018f-244f-4b5d-a59e-ba58d04903f0">
+                <![CDATA[org.openqa.selenium.NoSuchElementException: Unable to locate element: .//li[text()='']
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.29.0', revision: '5fc1ec94cb'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '22'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [b13e018f-244f-4b5d-a59e-ba58d04903f0, findChildElement {value=.//li[text()=''], using=xpath, id=72421812-3f47-4411-bb92-0603d2af155f}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 135.0.1, moz:accessibilityChecks: false, moz:buildID: 20250216192613, moz:geckodriverVersion: 0.36.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 23880, moz:profile: C:\Users\tient\AppData\Loca..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: b13e018f-244f-4b5d-a59e-ba58d04903f0
+                java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:368)org.openqa.selenium.remote.RemoteWebElement.findElement(RemoteWebElement.java:211)MajorManagement.F0402_AddMajor.performAddMajor(F0402_AddMajor.java:52)MajorManagement.F0402_AddMajor.TC08_TypeBlank(F0402_AddMajor.java:160)java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)java.base/java.lang.reflect.Method.invoke(Method.java:580)org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)java.base/java.util.ArrayList.forEach(ArrayList.java:1597)org.testng.TestRunner.privateRun(TestRunner.java:739)org.testng.TestRunner.run(TestRunner.java:614)org.testng.SuiteRunner.runTest(SuiteRunner.java:421)org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)org.testng.SuiteRunner.run(SuiteRunner.java:312)org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)org.testng.TestNG.runSuitesLocally(TestNG.java:1208)org.testng.TestNG.runSuites(TestNG.java:1112)org.testng.TestNG.run(TestNG.java:1079)com.microsoft.java.test.runner.testng.TestNGRunner.run(TestNGRunner.java:45)com.microsoft.java.test.runner.testng.TestNGLauncher.execute(TestNGLauncher.java:32)com.microsoft.java.test.runner.Launcher.main(Launcher.java:57)
+]]>
+            </failure>
+    </testcase>
 
 
             <testcase
+                name="TC02_IDFailed"
+                time="4.975"
+                classname="MajorManagement.F0402_AddMajor">
+            </testcase>
+            <testcase
+                name="TC07_NameShortBlank"
+                time="4.659"
+                classname="MajorManagement.F0402_AddMajor">
+            </testcase>
+            <testcase
+                name="TC03_IDAsText"
+                time="4.543"
+                classname="MajorManagement.F0402_AddMajor">
+            </testcase>
+            <testcase
                 name="TC01_ValidAddMajor"
-                time="4.439"
+                time="4.510"
+                classname="MajorManagement.F0402_AddMajor">
+            </testcase>
+            <testcase
+                name="TC06_NameBlank"
+                time="4.590"
+                classname="MajorManagement.F0402_AddMajor">
+            </testcase>
+            <testcase
+                name="TC04_IDGotBlank"
+                time="4.516"
+                classname="MajorManagement.F0402_AddMajor">
+            </testcase>
+            <testcase
+                name="TC05_IDBlank"
+                time="4.526"
                 classname="MajorManagement.F0402_AddMajor">
             </testcase>
 </testsuite>
