@@ -1,17 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="TestNGTest-3afe0cc6-770c-4f81-b025-765dae606e92"
-           tests="1"
+<testsuite name="TestNGTest-c7b6821a-d830-4cba-be5f-0076c4a0fe7b"
+           tests="4"
            failures="0"
            errors="0"
            skipped="0"
-           time="9.043">
+           time="24.339">
     <properties></properties>
 
 
 
             <testcase
+                name="TC03_NameBlank"
+                time="4.578"
+                classname="MajorManagement.F0403_EditMajor">
+            </testcase>
+            <testcase
+                name="TC07_NameShortBlank"
+                time="4.556"
+                classname="MajorManagement.F0403_EditMajor">
+            </testcase>
+            <testcase
                 name="TC01_ValidEditMajor"
-                time="9.043"
+                time="4.639"
+                classname="MajorManagement.F0403_EditMajor">
+            </testcase>
+            <testcase
+                name="TC02_IDBlank"
+                time="10.566"
                 classname="MajorManagement.F0403_EditMajor">
             </testcase>
 </testsuite>
