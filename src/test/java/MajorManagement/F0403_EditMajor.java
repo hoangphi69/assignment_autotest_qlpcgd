@@ -29,7 +29,7 @@ public class F0403_EditMajor extends MajorPage {
     try {
       // Tìm thẻ <td> chứa thông báo lỗi
       WebElement errorMessage = driver.findElement(By.xpath("//td[@class='dataTables_empty']"));
-      
+
       // Lấy text từ thẻ này
       String errorText = errorMessage.getText().trim();
 
@@ -38,33 +38,33 @@ public class F0403_EditMajor extends MajorPage {
     } catch (Exception e) {
       System.out.println("ID tồn tại");
     }
-}
+  }
 
-// TC03: Tên ngành bỏ trống
-@Test
-public void TC03_NameBlank() throws InterruptedException {
-  String id = "621";
-  String name = "";
-  String abbrev = "Git Gud";
-  String program = "Đặc biệt";
-  performEditMajor(id, name, abbrev, program);
+  // TC03: Tên ngành bỏ trống
+  @Test
+  public void TC03_NameBlank() throws InterruptedException {
+    String id = "621";
+    String name = "";
+    String abbrev = "Git Gud";
+    String program = "Đặc biệt";
+    performEditMajor(id, name, abbrev, program);
 
-  String errorText = driver.findElement(By.xpath("//*[@id=\"name-error\"]")).getText();
-  System.out.println("Thông báo lỗi TC03: "+ errorText);
-}
+    String errorText = driver.findElement(By.xpath("//*[@id=\"name-error\"]")).getText();
+    System.out.println("Thông báo lỗi TC03: " + errorText);
+  }
 
-//TC04: Tên ngành viết tắt để trống
-@Test
-public void TC07_NameShortBlank() throws InterruptedException {
-  String id = "123";
-  String name = "git gud";
-  String abbrev = "";
-  String program = "Đặc biệt";
-  performEditMajor(id, name, abbrev, program);
+  // TC04: Tên ngành viết tắt để trống
+  @Test
+  public void TC07_NameShortBlank() throws InterruptedException {
+    String id = "123";
+    String name = "git gud";
+    String abbrev = "";
+    String program = "Đặc biệt";
+    performEditMajor(id, name, abbrev, program);
 
-  String errorText = driver.findElement(By.xpath("//*[@id=\"abbreviation-error\"]")).getText();
-  System.out.println("Thông báo lỗi TC04: "+ errorText);
-}
+    String errorText = driver.findElement(By.xpath("//*[@id=\"abbreviation-error\"]")).getText();
+    System.out.println("Thông báo lỗi TC04: " + errorText);
+  }
 
   public void performEditMajor(String id, String name, String nameShort, String majorProgram) {
     // Tìm mã ngành cần edit
