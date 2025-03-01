@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 public class F0401_ListMajors extends MajorPage {
   @Test
-  public void TC01_ListMajorsPage2() {
+  public void AllTestCases() {
     performListMajors();
   }
 
@@ -14,14 +14,16 @@ public class F0401_ListMajors extends MajorPage {
 
     // TC01: Hiển thị 25 trang dữ liệu
     delay(2000);
-    WebElement numberOfList = driver.findElement(By.xpath("/html/body/div[2]/div[2]/div[3]/div/section/div/div/div/div[2]/div/div/div[1]/div[1]/div/label/select"));
+    WebElement numberOfList = driver.findElement(By.xpath(
+        "/html/body/div[2]/div[2]/div[3]/div/section/div/div/div/div[2]/div/div/div[1]/div[1]/div/label/select"));
     numberOfList.click();
-    WebElement ten25List = driver.findElement(By.xpath("/html/body/div[2]/div[2]/div[3]/div/section/div/div/div/div[2]/div/div/div[1]/div[1]/div/label/select/option[2]"));
+    WebElement ten25List = driver.findElement(By.xpath(
+        "/html/body/div[2]/div[2]/div[3]/div/section/div/div/div/div[2]/div/div/div[1]/div[1]/div/label/select/option[2]"));
     ten25List.click();
 
-      //page roll down
-      delay(1000);
-      ((org.openqa.selenium.JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
+    // page roll down
+    ((org.openqa.selenium.JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
+    delay(1000);
 
     // TC02: Chuyển qua trang tiếp theo
     delay(4000);
@@ -41,30 +43,31 @@ public class F0401_ListMajors extends MajorPage {
     // TC05: Hiển thị 50 trang dữ liệu
     delay(4000);
     numberOfList.click();
-    WebElement ten50List = driver.findElement(By.xpath("/html/body/div[2]/div[2]/div[3]/div/section/div/div/div/div[2]/div/div/div[1]/div[1]/div/label/select/option[3]"));
+    WebElement ten50List = driver.findElement(By.xpath(
+        "/html/body/div[2]/div[2]/div[3]/div/section/div/div/div/div[2]/div/div/div[1]/div[1]/div/label/select/option[3]"));
     ten50List.click();
 
-      //page roll down
-      delay(1000);
-      ((org.openqa.selenium.JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
+    // page roll down
+    delay(1000);
+    ((org.openqa.selenium.JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
 
-      //page roll up
-      delay(2000);
-      pageRollUp.click();
-
+    // page roll up
+    delay(2000);
+    pageRollUp.click();
 
     // TC06: Hiển thị tất cả trang dữ liệu
     delay(4000);
     numberOfList.click();
-    WebElement tenAllList = driver.findElement(By.xpath("/html/body/div[2]/div[2]/div[3]/div/section/div/div/div/div[2]/div/div/div[1]/div[1]/div/label/select/option[4]"));
+    WebElement tenAllList = driver.findElement(By.xpath(
+        "/html/body/div[2]/div[2]/div[3]/div/section/div/div/div/div[2]/div/div/div[1]/div[1]/div/label/select/option[4]"));
     tenAllList.click();
 
-      //page roll down
-      delay(1000);
-      ((org.openqa.selenium.JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
-      
-      //page roll up
-      delay(2000);
-      pageRollUp.click();
+    // page roll down
+    delay(1000);
+    ((org.openqa.selenium.JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
+
+    // page roll up
+    delay(2000);
+    pageRollUp.click();
   }
 }
