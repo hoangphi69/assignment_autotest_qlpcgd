@@ -1,8 +1,10 @@
-package MajorManagement;
+package MajorManagement.F0401_ListMajors;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
+
+import MajorManagement.MajorPage;
 
 public class F0401_ListMajors extends MajorPage {
   @Test

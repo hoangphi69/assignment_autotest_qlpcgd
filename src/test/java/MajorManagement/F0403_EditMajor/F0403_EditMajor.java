@@ -1,4 +1,4 @@
-package MajorManagement;
+package MajorManagement.F0403_EditMajor;
 
 import java.util.List;
 import java.util.regex.Matcher;
@@ -7,6 +7,8 @@ import java.util.regex.Pattern;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
+
+import MajorManagement.MajorPage;
 
 public class F0403_EditMajor extends MajorPage {
 

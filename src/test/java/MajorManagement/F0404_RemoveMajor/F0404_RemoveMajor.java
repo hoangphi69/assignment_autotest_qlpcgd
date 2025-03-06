@@ -1,4 +1,4 @@
-package MajorManagement;
+package MajorManagement.F0404_RemoveMajor;
 
 import java.time.Duration;
 import java.util.List;
@@ -11,6 +11,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import MajorManagement.MajorPage;
 
 public class F0404_RemoveMajor extends MajorPage {
 

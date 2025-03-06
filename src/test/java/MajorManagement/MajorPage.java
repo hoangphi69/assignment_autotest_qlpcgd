@@ -1,52 +1,71 @@
 package MajorManagement;
 
-import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeMethod;
 
-import utils.BaseTest;
+import helpers.BaseTest;
 
 public class MajorPage extends BaseTest {
   @BeforeMethod
   public void navigateToMajorPage() {
-    // Chọn mục "Học kỳ và ngành"
-    WebElement usersLink = driver
-        .findElement(By.xpath("//a[@class='d-flex align-items-center' and @href='/Phancong02/Term']"));
-    usersLink.click();
-    delay(500);
+    driver.navigate().refresh();
+    driver.get(BASE_URL + "/Major");
+  }
 
-    // Chọn tab "Ngành"
-    WebElement majorLink = driver.findElement(By.xpath("//a[@class='nav-link' and @href='/Phancong02/Major']"));
-    majorLink.click();
-    delay(500);
+  public void searchMajor(String id) {
+    WebElement searchBar = driver.findElement(MajorPageElements.SEARCH_BAR);
+    searchBar.clear();
+    searchBar.sendKeys(id);
+  }
+
+  public WebElement findMajorRowByID(String id) {
+    WebElement table = wait.until(ExpectedConditions.visibilityOfElementLocated(MajorPageElements.TABLE));
+    List<WebElement> rows = table.findElements(By.xpath("./tbody/tr"));
+
+    for (WebElement row : rows) {
+      String majorID = row.findElement(MajorPageElements.TABLE_CELL_MAJOR_ID).getText();
+      if (majorID.equals(id))
+        return row;
+    }
+    return null;
   }
 
   public boolean performCheckExisted(String id) {
-    // Tìm mã ngành
-    WebElement findBox = driver.findElement(By.xpath(
-        "/html/body/div[2]/div[2]/div[3]/div/section/div/div/div/div[2]/div/div/div[1]/div[2]/div/div[1]/div/label/input"));
-    findBox.clear();
-    findBox.sendKeys(id);
+    // Tìm ngành theo mã ngành
+    searchMajor(id);
+    delay(500);
 
-    // Lấy danh sách các dòng từ bảng
-    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-    WebElement table = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("tblMajor")));
-    List<WebElement> rows = table.findElements(By.xpath("./tbody/tr"));
+    // Tìm dòng chứa mã ngành cần tìm
+    WebElement targetRow = findMajorRowByID(id);
+    delay(500);
 
-    WebElement targetRow = null;
-    for (WebElement row : rows) {
-      String maNganhText = row.findElement(By.xpath("./td[2]")).getText().trim();
-      if (maNganhText.equals(id)) {
-        targetRow = row;
-        break;
-      }
-    }
+    return targetRow != null;
+  }
 
-    return (targetRow != null);
+  public boolean performCheckInformation(String id, String name, String abbrev, String program) {
+    // Tìm ngành theo mã ngành
+    searchMajor(id);
+    delay(500);
+
+    // Tìm dòng chứa mã ngành cần tìm
+    WebElement targetRow = findMajorRowByID(id);
+    delay(500);
+
+    // Kiểm tra xem dòng đó có tồn tại hay không
+    if (targetRow == null)
+      return false;
+
+    // Kiểm tra thông tin chi tiết của ngành học
+    String majorName = targetRow.findElement(MajorPageElements.TABLE_CELL_MAJOR_NAME).getText();
+    String majorAbbrev = targetRow.findElement(MajorPageElements.TABLE_CELL_MAJOR_ABBREV).getText();
+    String majorProgram = targetRow.findElement(MajorPageElements.TABLE_CELL_MAJOR_PROGRAM).getText();
+    if (!majorName.equals(name) || !majorAbbrev.equals(abbrev) || !majorProgram.equals(program))
+      return false;
+
+    return true;
   }
 }
