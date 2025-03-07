@@ -15,4 +15,5 @@ public class MajorPageElements {
   public static final By POPUP_ERROR = By.xpath("/html/body/div[4]/div");
   public static final By POPUP_ERROR_TEXT = By.xpath("//*[@id=\"swal2-html-container\"]");
   public static final By POPUP_ERROR_OK = By.xpath("/html/body/div[4]/div/div[6]/button[1]");
+  public static final By EMPTY_ERROR_TEXT = By.xpath("/html/body/div[2]/div[2]/div[3]/div/section/div/div/div/div[2]/div/div/table/tbody/tr/td");
 }

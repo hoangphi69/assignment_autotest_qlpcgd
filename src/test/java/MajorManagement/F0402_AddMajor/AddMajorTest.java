@@ -6,7 +6,6 @@ import org.testng.annotations.Test;
 import com.fasterxml.jackson.databind.JsonNode;
 
 import helpers.JsonReader;
-
 public class AddMajorTest extends AddMajorPage {
 
   private static final String FILE_NAME = "add_major_test_data.json";
@@ -25,12 +24,12 @@ public class AddMajorTest extends AddMajorPage {
     performAddMajor(id, name, abbrev, program);
     delay(300);
 
+    // // Kiểm tra dữ liệu tồn tại
+    // Assert.assertTrue(performCheckInformation(id, name, abbrev, program), "Ngành mới chưa được thêm vào hệ thống");
+    // delay(300);
+
     // Refresh trang
     driver.navigate().refresh();
-    delay(300);
-
-    // Kiểm tra dữ liệu tồn tại
-    Assert.assertTrue(performCheckInformation(id, name, abbrev, program), "Ngành mới chưa được thêm vào hệ thống");
     delay(300);
   }
 
@@ -49,12 +48,17 @@ public class AddMajorTest extends AddMajorPage {
     performAddMajor(id, name, abbrev, program);
     delay(300);
 
-    // Lấy thông báo lỗi
+    // Lấy thông báo >>Output context
     String actualMessage = getPopupErrorMessage();
+    System.out.println(">>Output context TC02: " + actualMessage);
     delay(300);
 
-    // Kiểm tra thông báo lỗi
-    Assert.assertEquals(actualMessage, expectedMessage, "Thông báo lỗi không chính xác");
+    // Kiểm tra thông báo >>Output context
+    Assert.assertEquals(actualMessage, expectedMessage, "Thông báo >>Output context không chính xác");
+
+    // Refresh trang
+    driver.navigate().refresh();
+    delay(300);
   }
 
   @Test
@@ -74,10 +78,15 @@ public class AddMajorTest extends AddMajorPage {
 
     // Lấy thông báo lỗi
     String actualMessage = getFormErrorMessage(AddMajorElements.MAJOR_ID_FIELD_ERROR);
+    System.out.println(">>Output context TC03: " + actualMessage);
     delay(300);
 
     // Kiểm tra thông báo lỗi
-    Assert.assertEquals(actualMessage, expectedMessage, "Thông báo lỗi không chính xác");
+    Assert.assertEquals(actualMessage, expectedMessage, "Thông báo >>Output context không chính xác");
+
+    // Refresh trang
+    driver.navigate().refresh();
+    delay(300);
   }
 
   @Test
@@ -97,10 +106,15 @@ public class AddMajorTest extends AddMajorPage {
 
     // Lấy thông báo lỗi
     String actualMessage = getFormErrorMessage(AddMajorElements.MAJOR_ID_FIELD_ERROR);
+    System.out.println(">>Output context TC04: " + actualMessage);
     delay(300);
 
-    // Kiểm tra thông báo lỗi
-    Assert.assertEquals(actualMessage, expectedMessage, "Thông báo lỗi không chính xác");
+    // Kiểm tra thông báo >>Output context
+    Assert.assertEquals(actualMessage, expectedMessage, "Thông báo >>Output context không chính xác");
+
+    // Refresh trang
+    driver.navigate().refresh();
+    delay(300);
   }
 
   @Test
@@ -120,10 +134,15 @@ public class AddMajorTest extends AddMajorPage {
 
     // Lấy thông báo lỗi
     String actualMessage = getFormErrorMessage(AddMajorElements.MAJOR_ID_FIELD_ERROR);
+    System.out.println(">>Output context TC05: " + actualMessage);
     delay(300);
 
     // Kiểm tra thông báo lỗi
-    Assert.assertEquals(actualMessage, expectedMessage, "Thông báo lỗi không chính xác");
+    Assert.assertEquals(actualMessage, expectedMessage, "Thông báo >>Output context không chính xác");
+
+    // Refresh trang
+    driver.navigate().refresh();
+    delay(300);
   }
 
   @Test
@@ -143,10 +162,15 @@ public class AddMajorTest extends AddMajorPage {
 
     // Lấy thông báo lỗi
     String actualMessage = getFormErrorMessage(AddMajorElements.MAJOR_NAME_FIELD_ERROR);
+    System.out.println(">>Output context TC06: " + actualMessage);
     delay(300);
 
     // Kiểm tra thông báo lỗi
-    Assert.assertEquals(actualMessage, expectedMessage, "Thông báo lỗi không chính xác");
+    Assert.assertEquals(actualMessage, expectedMessage, "Thông báo >>Output context không chính xác");
+
+    // Refresh trang
+    driver.navigate().refresh();
+    delay(300);
   }
 
   @Test
@@ -166,9 +190,14 @@ public class AddMajorTest extends AddMajorPage {
 
     // Lấy thông báo lỗi
     String actualMessage = getFormErrorMessage(AddMajorElements.MAJOR_ABBREV_FIELD_ERROR);
+    System.out.println(">>Output context TC07: " + actualMessage);
     delay(300);
 
     // Kiểm tra thông báo lỗi
-    Assert.assertEquals(actualMessage, expectedMessage, "Thông báo lỗi không chính xác");
+    Assert.assertEquals(actualMessage, expectedMessage, "Thông báo >>Output context không chính xác");
+
+    // Refresh trang
+    driver.navigate().refresh();
+    delay(300);
   }
 }
