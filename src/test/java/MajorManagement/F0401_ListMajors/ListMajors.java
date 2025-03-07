@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 import MajorManagement.MajorPage;
 
-public class F0401_ListMajors extends MajorPage {
+public class ListMajors extends MajorPage {
   @Test
   public void AllTestCases() {
     performListMajors();

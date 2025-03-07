@@ -16,6 +16,7 @@ public class MajorPage extends BaseTest {
     driver.get(BASE_URL + "/Major");
   }
 
+  // Tìm mã ngành theo id
   public void searchMajor(String id) {
     WebElement searchBar = driver.findElement(MajorPageElements.SEARCH_BAR);
     searchBar.clear();

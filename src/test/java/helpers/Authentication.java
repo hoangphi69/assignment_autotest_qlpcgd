@@ -16,7 +16,7 @@ public class Authentication {
     }
 
     public void login() {
-        String path = "cookie.txt";
+        String path = "cookies.txt";
         try (Stream<String> lines = Files.lines(Paths.get(path))) {
             String value = lines.findFirst().orElse("File rỗng");
             Cookie cookie = new Cookie(".AspNet.Cookies", value);

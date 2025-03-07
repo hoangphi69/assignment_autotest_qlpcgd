@@ -6,7 +6,6 @@ import org.testng.annotations.Test;
 import com.fasterxml.jackson.databind.JsonNode;
 
 import helpers.JsonReader;
-
 public class AddMajorTest extends AddMajorPage {
 
   private static final String FILE_NAME = "add_major_test_data.json";
