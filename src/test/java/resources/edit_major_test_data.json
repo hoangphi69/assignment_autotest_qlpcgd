@@ -6,23 +6,23 @@
       "program": "Tiêu chuẩn"
     },
     "TC02": {
-      "id": "621",
+      "id": "756",
       "name": "CNTT ver02",
       "abbrev": "IT ver02",
       "program": "Tiêu chuẩn",
       "expectedError": "Mã ngành này đã tồn tại!"
     },
     "TC03": {
-      "id": "Práise",
-      "name": "CNTT ver03",
+      "id": "621",
+      "name": "",
       "abbrev": "IT ver03",
       "program": "Tiêu chuẩn",
       "expectedError": "Chỉ được nhập số-chữ không dấu và không có khoảng trắng!"
     },
     "TC04": {
-      "id": "Praise the Sun",
+      "id": "621",
       "name": "CNTT ver04",
-      "abbrev": "IT ver04",
+      "abbrev": "",
       "program": "Tiêu chuẩn",
       "expectedError": "Chỉ được nhập số-chữ không dấu và không có khoảng trắng!"
     },

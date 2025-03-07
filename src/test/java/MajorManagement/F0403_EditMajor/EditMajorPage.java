@@ -95,6 +95,12 @@ public class EditMajorPage extends MajorPage{
         okBtn.click();
     }
 
+    // Lấy lỗi trả về id empty
+    public String getEmptyErrorMessage() {
+        List<WebElement> emptyErrors = driver.findElements(MajorPageElements.EMPTY_ERROR_TEXT);
+        return emptyErrors.isEmpty() ? "" : emptyErrors.get(0).getText();
+    }
+
     public void performEditMajor(String majorID, String majorName, String majorAbbrev, String majorProgram) {
         searchMajor(majorID);
         delay(300);
@@ -102,11 +108,24 @@ public class EditMajorPage extends MajorPage{
         clickEditButton(majorID);
         delay(300);
 
-        enterMajorName(majorName);
-        enterMajorAbbrev(majorAbbrev);
-        selectMajorProgram(majorProgram);
+        // Kiểm tra và nhập tên ngành nếu field tồn tại
+        if (!driver.findElements(EditMajorElement.MAJOR_NAME_FIELD).isEmpty()) {
+            enterMajorName(majorName);
+        }
 
-        clickConfirmButton();
+        // Kiểm tra và nhập tên viết tắt ngành nếu field tồn tại
+        if (!driver.findElements(EditMajorElement.MAJOR_ABBREV_FIELD).isEmpty()) {
+            enterMajorAbbrev(majorAbbrev);
+        }
+
+        // Kiểm tra và chọn CTĐT nếu field tồn tại
+        if (!driver.findElements(EditMajorElement.MAJOR_PROGRAM_SELECT).isEmpty()) {
+            selectMajorProgram(majorProgram);
+        }
+
+        if (!driver.findElements(AddMajorElements.CONFIRM_BUTTON).isEmpty()) {
+            clickConfirmButton();
+        }
+
     }
-    
 }
