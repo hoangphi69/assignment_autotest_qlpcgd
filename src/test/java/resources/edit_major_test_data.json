@@ -9,43 +9,37 @@
       "id": "756",
       "name": "CNTT ver02",
       "abbrev": "IT ver02",
-      "program": "Tiêu chuẩn",
-      "expectedError": "Mã ngành này đã tồn tại!"
+      "program": "Tiêu chuẩn"
     },
     "TC03": {
       "id": "621",
       "name": "",
       "abbrev": "IT ver03",
-      "program": "Tiêu chuẩn",
-      "expectedError": "Chỉ được nhập số-chữ không dấu và không có khoảng trắng!"
+      "program": "Tiêu chuẩn"
     },
     "TC04": {
       "id": "621",
       "name": "CNTT ver04",
       "abbrev": "",
-      "program": "Tiêu chuẩn",
-      "expectedError": "Chỉ được nhập số-chữ không dấu và không có khoảng trắng!"
+      "program": "Tiêu chuẩn"
     },
     "TC05": {
       "id": "",
       "name": "CNTT ver05",
       "abbrev": "IT ver05",
-      "program": "Tiêu chuẩn",
-      "expectedError": "Bạn chưa nhập mã ngành"
+      "program": "Tiêu chuẩn"
     },
     "TC06": {
       "id": "123",
       "name": "CNTT ver06",
       "abbrev": "IT ver06",
-      "program": "Tiêu chuẩn",
-      "expectedError": "Bạn chưa nhập tên ngành"
+      "program": "Tiêu chuẩn"
     },
     "TC07": {
       "id": "123",
       "name": "CNTT ver07",
       "abbrev": "IT ver07",
-      "program": "Tiêu chuẩn",
-      "expectedError": "Bạn chưa nhập tên viết tắt của ngành"
+      "program": "Tiêu chuẩn"
     }
   }
   

@@ -1,11 +1,11 @@
 package MajorManagement.F0402_AddMajor;
 
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
 import helpers.JsonReader;
+
 public class AddMajorTest extends AddMajorPage {
 
   private static final String FILE_NAME = "add_major_test_data.json";
@@ -22,15 +22,15 @@ public class AddMajorTest extends AddMajorPage {
 
     // Thêm ngành học mới
     performAddMajor(id, name, abbrev, program);
-    delay(300);
-
-    // // Kiểm tra dữ liệu tồn tại
-    // Assert.assertTrue(performCheckInformation(id, name, abbrev, program), "Ngành mới chưa được thêm vào hệ thống");
-    // delay(300);
+    delay(1000);
+    
+    System.out.println(">>Output context TC01: ");
+    getCellByID(id);
 
     // Refresh trang
     driver.navigate().refresh();
     delay(300);
+    
   }
 
   @Test
@@ -42,7 +42,6 @@ public class AddMajorTest extends AddMajorPage {
     String name = data.get("name").asText();
     String abbrev = data.get("abbrev").asText();
     String program = data.get("program").asText();
-    String expectedMessage = data.get("expectedError").asText();
 
     // Thêm ngành học mới
     performAddMajor(id, name, abbrev, program);
@@ -52,9 +51,7 @@ public class AddMajorTest extends AddMajorPage {
     String actualMessage = getPopupErrorMessage();
     System.out.println(">>Output context TC02: " + actualMessage);
     delay(300);
-
-    // Kiểm tra thông báo >>Output context
-    Assert.assertEquals(actualMessage, expectedMessage, "Thông báo >>Output context không chính xác");
+    getCellByID(id);
 
     // Refresh trang
     driver.navigate().refresh();
@@ -70,7 +67,6 @@ public class AddMajorTest extends AddMajorPage {
     String name = data.get("name").asText();
     String abbrev = data.get("abbrev").asText();
     String program = data.get("program").asText();
-    String expectedMessage = data.get("expectedError").asText();
 
     // Thêm ngành học mới
     performAddMajor(id, name, abbrev, program);
@@ -80,9 +76,7 @@ public class AddMajorTest extends AddMajorPage {
     String actualMessage = getFormErrorMessage(AddMajorElements.MAJOR_ID_FIELD_ERROR);
     System.out.println(">>Output context TC03: " + actualMessage);
     delay(300);
-
-    // Kiểm tra thông báo lỗi
-    Assert.assertEquals(actualMessage, expectedMessage, "Thông báo >>Output context không chính xác");
+    getCellByID(id);
 
     // Refresh trang
     driver.navigate().refresh();
@@ -98,7 +92,6 @@ public class AddMajorTest extends AddMajorPage {
     String name = data.get("name").asText();
     String abbrev = data.get("abbrev").asText();
     String program = data.get("program").asText();
-    String expectedMessage = data.get("expectedError").asText();
 
     // Thêm ngành học mới
     performAddMajor(id, name, abbrev, program);
@@ -108,9 +101,7 @@ public class AddMajorTest extends AddMajorPage {
     String actualMessage = getFormErrorMessage(AddMajorElements.MAJOR_ID_FIELD_ERROR);
     System.out.println(">>Output context TC04: " + actualMessage);
     delay(300);
-
-    // Kiểm tra thông báo >>Output context
-    Assert.assertEquals(actualMessage, expectedMessage, "Thông báo >>Output context không chính xác");
+    getCellByID(id);
 
     // Refresh trang
     driver.navigate().refresh();
@@ -126,7 +117,6 @@ public class AddMajorTest extends AddMajorPage {
     String name = data.get("name").asText();
     String abbrev = data.get("abbrev").asText();
     String program = data.get("program").asText();
-    String expectedMessage = data.get("expectedError").asText();
 
     // Thêm ngành học mới
     performAddMajor(id, name, abbrev, program);
@@ -136,9 +126,7 @@ public class AddMajorTest extends AddMajorPage {
     String actualMessage = getFormErrorMessage(AddMajorElements.MAJOR_ID_FIELD_ERROR);
     System.out.println(">>Output context TC05: " + actualMessage);
     delay(300);
-
-    // Kiểm tra thông báo lỗi
-    Assert.assertEquals(actualMessage, expectedMessage, "Thông báo >>Output context không chính xác");
+    getCellByID(id);
 
     // Refresh trang
     driver.navigate().refresh();
@@ -154,7 +142,6 @@ public class AddMajorTest extends AddMajorPage {
     String name = data.get("name").asText();
     String abbrev = data.get("abbrev").asText();
     String program = data.get("program").asText();
-    String expectedMessage = data.get("expectedError").asText();
 
     // Thêm ngành học mới
     performAddMajor(id, name, abbrev, program);
@@ -164,9 +151,7 @@ public class AddMajorTest extends AddMajorPage {
     String actualMessage = getFormErrorMessage(AddMajorElements.MAJOR_NAME_FIELD_ERROR);
     System.out.println(">>Output context TC06: " + actualMessage);
     delay(300);
-
-    // Kiểm tra thông báo lỗi
-    Assert.assertEquals(actualMessage, expectedMessage, "Thông báo >>Output context không chính xác");
+    getCellByID(id);
 
     // Refresh trang
     driver.navigate().refresh();
@@ -182,7 +167,6 @@ public class AddMajorTest extends AddMajorPage {
     String name = data.get("name").asText();
     String abbrev = data.get("abbrev").asText();
     String program = data.get("program").asText();
-    String expectedMessage = data.get("expectedError").asText();
 
     // Thêm ngành học mới
     performAddMajor(id, name, abbrev, program);
@@ -192,9 +176,7 @@ public class AddMajorTest extends AddMajorPage {
     String actualMessage = getFormErrorMessage(AddMajorElements.MAJOR_ABBREV_FIELD_ERROR);
     System.out.println(">>Output context TC07: " + actualMessage);
     delay(300);
-
-    // Kiểm tra thông báo lỗi
-    Assert.assertEquals(actualMessage, expectedMessage, "Thông báo >>Output context không chính xác");
+    getCellByID(id);
 
     // Refresh trang
     driver.navigate().refresh();

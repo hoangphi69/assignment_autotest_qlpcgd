@@ -16,20 +16,19 @@ public class RemoveMajorTest extends RemoveMajorPage {
     JsonNode data = JsonReader.getTestData(FILE_NAME, "TC01");
     String id = data.get("id").asText();
 
+    System.out.println(">>Output context TC01: ");
+
     // Remove ngành học
     performRemoveMajor(id);
     delay(300);
-
-    // Refresh trang
-    driver.navigate().refresh();
-    delay(300);
+    getCellByID(id);
   }
 
   // TC02: Id không tồn tại
   @Test
   public void TC02_RemoveMajor() {
     // Dữ liệu truyền vào
-    JsonNode data = JsonReader.getTestData(FILE_NAME, "TC01");
+    JsonNode data = JsonReader.getTestData(FILE_NAME, "TC02");
     String id = data.get("id").asText();
 
     // Remove ngành học
@@ -39,9 +38,6 @@ public class RemoveMajorTest extends RemoveMajorPage {
     // Lấy thông báo lỗi
     System.out.println(">>Output context TC02: " + getEmptyErrorMessage());
     delay(300);
-
-    // Refresh trang
-    driver.navigate().refresh();
-    delay(300);
+    getCellByID(id);
   }
 }

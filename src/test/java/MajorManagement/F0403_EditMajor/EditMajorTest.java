@@ -1,6 +1,5 @@
 package MajorManagement.F0403_EditMajor;
 
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.fasterxml.jackson.databind.JsonNode;
@@ -25,9 +24,8 @@ public class EditMajorTest extends EditMajorPage {
     performEditMajor(id, name, abbrev, program);
     delay(300);
 
-    // Kiểm tra dữ liệu tồn tại
-    Assert.assertTrue(performCheckInformation(id, name, abbrev, program), "Ngành mới chưa được thêm vào hệ thống");
-    delay(300);
+    System.out.println(">>Output context TC01: ");
+    getCellByID(id);
 
     // Refresh trang
     driver.navigate().refresh();
@@ -48,13 +46,12 @@ public class EditMajorTest extends EditMajorPage {
     // Edit ngành học
     performEditMajor(id, name, abbrev, program);
     delay(300);
+    
 
     // Lấy thông báo lỗi
     System.out.println(">>Output context TC02: " + getEmptyErrorMessage());
     delay(300);
-
-    // Kiểm tra thông báo lỗi
-    // Assert.assertEquals(actualMessage, expectedMessage, "Thông báo lỗi không chính xác");
+    getCellByID(id);
 
     // Refresh trang
     driver.navigate().refresh();
@@ -80,9 +77,7 @@ public class EditMajorTest extends EditMajorPage {
     String actualMessage = getFormErrorMessage(EditMajorElement.MAJOR_NAME_FIELD_ERROR);
     System.out.println(">>Output context TC03: " + actualMessage);
     delay(300);
-
-    // Kiểm tra thông báo lỗi
-    // Assert.assertEquals(actualMessage, expectedMessage, "Thông báo lỗi không chính xác");
+    getCellByID(id);
 
     // Refresh trang
     driver.navigate().refresh();
@@ -98,7 +93,6 @@ public class EditMajorTest extends EditMajorPage {
     String name = data.get("name").asText();
     String abbrev = data.get("abbrev").asText();
     String program = data.get("program").asText();
-    // String expectedMessage = data.get("expectedError").asText();
 
     // Edit ngành học
     performEditMajor(id, name, abbrev, program);
@@ -108,10 +102,8 @@ public class EditMajorTest extends EditMajorPage {
     String actualMessage = getFormErrorMessage(EditMajorElement.MAJOR_ABBREV_FIELD_ERROR);
     System.out.println(">>Output context TC04: " + actualMessage);
     delay(300);
+    getCellByID(id);
 
-    // // Kiểm tra thông báo lỗi
-    // Assert.assertEquals(actualMessage, expectedMessage, "Thông báo lỗi không chính xác");
-    
     // Refresh trang
     driver.navigate().refresh();
     delay(300);

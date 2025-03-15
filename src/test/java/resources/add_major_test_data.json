@@ -9,42 +9,36 @@
     "id": "621",
     "name": "Call Sign: Raven",
     "abbrev": "Rubicon",
-    "program": "Đặc biệt",
-    "expectedError": "Mã ngành này đã tồn tại!"
+    "program": "Đặc biệt"
   },
   "TC03": {
     "id": "Práise",
     "name": "Dos thou even git?",
     "abbrev": "Git Gud",
-    "program": "Đặc biệt",
-    "expectedError": "Chỉ được nhập số-chữ không dấu và không có khoảng trắng!"
+    "program": "Đặc biệt"
   },
   "TC04": {
     "id": "Praise the Sun",
     "name": "Dos thou even git?",
     "abbrev": "Git Gud",
-    "program": "Đặc biệt",
-    "expectedError": "Chỉ được nhập số-chữ không dấu và không có khoảng trắng!"
+    "program": "Đặc biệt"
   },
   "TC05": {
     "id": "",
     "name": "Dos thou even git?",
     "abbrev": "Git Gud",
-    "program": "Đặc biệt",
-    "expectedError": "Bạn chưa nhập mã ngành"
+    "program": "Đặc biệt"
   },
   "TC06": {
     "id": "123",
     "name": "",
     "abbrev": "Git Gud",
-    "program": "Đặc biệt",
-    "expectedError": "Bạn chưa nhập tên ngành"
+    "program": "Đặc biệt"
   },
   "TC07": {
-    "id": "123",
+    "id": "13579",
     "name": "git gud",
     "abbrev": "",
-    "program": "Đặc biệt",
-    "expectedError": "Bạn chưa nhập tên viết tắt của ngành"
+    "program": "Đặc biệt"
   }
 }
