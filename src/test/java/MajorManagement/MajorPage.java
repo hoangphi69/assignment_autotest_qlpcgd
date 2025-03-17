@@ -30,7 +30,7 @@ public class MajorPage extends BaseTest {
       List<WebElement> cell = row.findElements(By.tagName("td"));
 
       for (WebElement cellData : cell) {
-      System.err.println(cellData.getText().trim() + "|");
+      System.err.print(cellData.getText().trim() + "<|>");
       }
     } catch (Exception e) {
       System.out.println("Không tìm thấy data của ID "+ majorID + ", ID không tồn tại trong hệ thống");
