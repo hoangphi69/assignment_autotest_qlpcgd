@@ -2,12 +2,11 @@ package TestScript.TermManager.F0304_RemoveTerm;
 
 
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.testng.Assert;
 
 import TestScript.PageElement;
 import TestScript.TermMajorPage;
@@ -16,27 +15,15 @@ import TestScript.TermManager.TermElement;
 public class RemoveTermPage extends TermMajorPage{
     // Nhấn vào nút remove đúng
     public void deleteButton(String termID) {
-        List<WebElement> editButtons = driver.findElements(By.cssSelector("a.deleteRow.text-success.p-0"));
-        boolean isButtonFound = false;
-
-        for (WebElement button : editButtons) {
-            // Lấy giá trị của thuộc tính onclick
-            String onclickValue = button.getDomAttribute("onclick");    
-            // Trích xuất ID từ chuỗi onclick
-            Pattern pattern = Pattern.compile("deleteTerm\\('([\\w]+)'\\)");
-            Matcher matcher = pattern.matcher(onclickValue);    
-            if (matcher.find()) {
-              String extractedId = matcher.group(1);    
-              // Kiểm tra nếu extractedId trùng với id cần tìm
-              if (extractedId.equals(termID)) {
-                button.click(); // Nhấn vào nút chỉnh sửa của ID tương ứng
-                isButtonFound = true;
-                break; // Dừng vòng lặp khi tìm thấy
-              }
-            }
-        }
-    if (!isButtonFound) {}
+    try {
+        WebElement row = driver.findElement(By.xpath("//tr[td[@class='text-center'][text()='" + termID + "']]"));
+        WebElement buttonLabel = row.findElement(TermElement.BUTTON_LABEL);
+        WebElement deleteButton = buttonLabel.findElement(By.cssSelector("a.deleteRow.text-danger.p-0"));
+        deleteButton.click();
+    } catch (Exception e) {
+        Assert.fail("Không tìm thấy hoặc không thể nhấn đúng nút Delete!");
     }
+}
 
     // Xác nhận btn
     public void clickConfirmButton() {
@@ -68,20 +55,14 @@ public class RemoveTermPage extends TermMajorPage{
         return emptyErrors.isEmpty() ? "" : emptyErrors.get(0).getText();
     }
 
-    public void performRemoveMajor(String majorID) {
-        search_ID(majorID);
-        delay(1000);
+    public void performRemoveTerm(String termID) {
+        search_ID(termID);
 
         List<WebElement> deleteButtons = driver.findElements(By.cssSelector("a.deleteRow.text-danger.p-0"));
             if (!deleteButtons.isEmpty()) {
-                deleteButton(majorID);
-                delay(300); 
-
-                // Kiểm tra tiếp nút xác nhận có tồn tại không trước khi click
-                List<WebElement> confirmButtons = driver.findElements(TermElement.CONFIRM_DELETE);
-                if (!confirmButtons.isEmpty()) {
-                    clickConfirmButton();
+                deleteButton(termID);
+                delay(300);
+                clickConfirmButton();
+            }
         }
     }
-    }
-}

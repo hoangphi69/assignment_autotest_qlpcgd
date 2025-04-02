@@ -29,6 +29,13 @@ public class TermMajorPage extends BaseTest {
     searchBar.sendKeys(searchID);
   }
 
+  // Tìm mã ngành theo id
+  public void search_IDForUsers(String searchID) {
+    WebElement searchBar = driver.findElement(PageElement.SEARCH_USER_BAR);
+    searchBar.clear();
+    searchBar.sendKeys(searchID);
+  }
+
   // Tìm hàng chứa thông tin ID
   public void getCellByMajorID(String searchID) {
     try {

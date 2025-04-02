@@ -84,13 +84,13 @@ public class EditMajorPage extends TermMajorPage{
 
     // Lấy popup thông báo lỗi
     public String getPopupErrorMessage() {
-        WebElement popup = wait.until(ExpectedConditions.visibilityOfElementLocated(PageElement.POPUP_ERROR_MAJOR));
+        WebElement popup = wait.until(ExpectedConditions.visibilityOfElementLocated(PageElement.POPUP_ERROR));
         return popup.findElement(PageElement.POPUP_ERROR_TEXT).getText();
     }
 
     // Nhấn ok của popup thông báo lỗi
     public void clickPopupErrorOK() {
-        WebElement okBtn = driver.findElement(PageElement.POPUP_ERROR_MAJOR_OK);
+        WebElement okBtn = driver.findElement(PageElement.POPUP_ERROR_OK);
         okBtn.click();
     }
 

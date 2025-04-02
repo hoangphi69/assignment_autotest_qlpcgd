@@ -17,11 +17,10 @@ public class ListUserTest extends ListUserPage{
     // TC01: Chọn ẩn Mã Giảng Viên và kiểm tra Mã Giảng Viên trong danh sách
     @Test
     public void TC01_UndisplayMaGV () {
-        String expected = "Mã giảng viên";  
-
-        selectItemOption(expected); 
-        List<String> tableHeaders = getTableHeaders();
-
-        Assert.assertFalse(tableHeaders.contains(expected), "Lỗi: Dữ liệu '" + expected + "' không được hiển thị đúng!");
+      clickDisplayItem();
+      String expected = "Mã giảng viên";  
+      selectItemOption(expected); 
+      List<String> tableHeaders = getTableHeaders();
+      Assert.assertFalse(tableHeaders.contains(expected), "Lỗi: Dữ liệu '" + expected + "' không được hiển thị đúng!");
     }
 }

@@ -1,38 +1,38 @@
 {
   "TC01": {
     "id": "0402111",
-    "name": "AC621/ Call Sign: Raven",
+    "name": "Phòng chống code thuật hắc ám",
     "abbrev": "G13",
     "program": "Đặc biệt"
   },
   "TC02": {
     "id": "0402112",
-    "name": "Call Sign: Raven",
+    "name": "Code tân thủ",
     "abbrev": "Rubicon",
     "program": "Đặc biệt"
   },
   "TC03": {
     "id": "Práise",
-    "name": "Dos thou even git?",
+    "name": "Coder hắc ám",
     "abbrev": "Git Gud",
     "program": "Đặc biệt"
   },
   "TC04": {
     "id": "Praise the Sun",
-    "name": "Dos thou even git?",
+    "name": "100 câu truyện cười về code",
     "abbrev": "Git Gud",
     "program": "Đặc biệt"
   },
   "TC05": {
-    "id": "",
-    "name": "Dos thou even git?",
+    "id": " ",
+    "name": "Code là đâu, Bug là ai?",
     "abbrev": "Git Gud",
     "program": "Đặc biệt"
   },
   "TC06": {
     "id": "0402116",
     "name": "",
-    "abbrev": "Git Gud",
+    "abbrev": "Git Code or Git Bug",
     "program": "Đặc biệt"
   },
   "TC07": {

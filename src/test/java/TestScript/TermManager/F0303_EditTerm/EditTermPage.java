@@ -1,13 +1,17 @@
 package TestScript.TermManager.F0303_EditTerm;
 
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
+import TestScript.PageElement;
 import TestScript.TermMajorPage;
 import TestScript.TermManager.TermElement;
 
@@ -81,7 +85,6 @@ public class EditTermPage extends TermMajorPage{
 
         WebElement day = driver.findElement(TermElement.DAY_SELECT);
         day.click();
-
     }
 
     public void mlesson(String maxLesson) {
@@ -96,8 +99,24 @@ public class EditTermPage extends TermMajorPage{
         max_Class.sendKeys(maxClass);
     }
 
-    public void submit() {
+    public void clickConfirmButton() {
         driver.findElement(TermElement.SUBMIT_BUTTON).click();
+    }
+
+    public String getFormErrorMessage(By field) {
+        WebElement fieldError = wait.until(ExpectedConditions.visibilityOfElementLocated(field));
+        return fieldError.getText();
+    }
+
+    public String getPopupErrorMessage() {
+        WebElement popup = wait.until(ExpectedConditions.visibilityOfElementLocated(PageElement.POPUP_ERROR_TERM));
+        return popup.findElement(PageElement.POPUP_ERROR_TEXT).getText();
+    }
+
+    // Nhấn ok của popup thông báo lỗi
+    public void clickPopupErrorOK() {
+        WebElement okBtn = driver.findElement(PageElement.POPUP_ERROR_TERM_OK);
+        okBtn.click();
     }
 
     public void performEditTerm(String termID, String startYear, String endYear, String startWeek, String monthSelect, String yearSelect, String maxLesson, String maxClass) {
@@ -120,6 +139,29 @@ public class EditTermPage extends TermMajorPage{
         mlesson(maxLesson);
         mclass(maxClass);
 
-        submit();
+        clickConfirmButton();
+
+        // Danh sách các lỗi cần kiểm tra
+        Map<String, By> errorFields = new LinkedHashMap<>();
+        errorFields.put("Lỗi Term ID", TermElement.SEMESTER_FIELD_ERROR);
+        errorFields.put("Lỗi Start Week", TermElement.START_WEEK_FIELD_ERROR);
+        errorFields.put("Lỗi Date Picker", TermElement.DATE_PICKER_ERROR);
+        errorFields.put("Lỗi Max Lesson", TermElement.MAX_LESSON_ERROR);
+        errorFields.put("Lỗi Max Class", TermElement.MAX_CLASS_ERROR);
+
+        // Kiểm tra từng lỗi trong danh sách
+        for (Map.Entry<String, By> entry : errorFields.entrySet()) {
+            // Kiểm tra nếu phần tử lỗi tồn tại thì lấy nội dung lỗi
+            if (!driver.findElements(entry.getValue()).isEmpty()) {
+                String errorMessage = getFormErrorMessage(entry.getValue());
+                System.out.println(entry.getKey() + ": " + errorMessage);
+            }
+        }
+
+        if (!driver.findElements(PageElement.POPUP_ERROR_TERM).isEmpty()) {
+            String actualMessage = getPopupErrorMessage();
+            System.out.println("Message:" + actualMessage);
+            clickPopupErrorOK();
+        }
     }
 }

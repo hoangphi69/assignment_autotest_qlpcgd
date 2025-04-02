@@ -105,6 +105,28 @@ public class AddTermPage extends TermMajorPage {
         okBtn.click();
     }
 
+    // // Kiểm tra dữ liệu truyền vào
+    // public void verifyTermData(String termID, String startYear, String endYear, String startWeek,
+    //                        String monthSelect, String yearSelect, String maxLesson, String maxClass) {
+    //     // Lấy dữ liệu từ bảng
+    //     List<String> actualData = getCellByTermID(termID);
+    //     if (actualData == null) {
+    //         Assert.fail("Không tìm thấy dữ liệu vừa thêm!");
+    //         return;
+    //     }
+
+    //     // So sánh dữ liệu hiển thị với dữ liệu nhập
+    //     Assert.assertEquals(actualData.get(0), termID, "Lỗi tại Term ID:");
+    //     Assert.assertEquals(actualData.get(1), startYear, "Lỗi tại Start Year:");
+    //     Assert.assertEquals(actualData.get(2), endYear, "Lỗi tại End Year:");
+    //     Assert.assertEquals(actualData.get(3), startWeek, "Lỗi tại Start Week:");
+    //     Assert.assertEquals(actualData.get(4), monthSelect + "/" + yearSelect, "Lỗi tại Date Picker:");
+    //     Assert.assertEquals(actualData.get(5), maxLesson, "Lỗi tại Max Lesson:");
+    //     Assert.assertEquals(actualData.get(6), maxClass, "Lỗi tại Max Class:");
+
+    //     System.out.println("✅ Dữ liệu nhập vào và hiển thị khớp nhau!");
+    // }
+
     public void performAddTerm(String termID, String startYear, String endYear, String startWeek, String monthSelect,
             String yearSelect, String maxLesson, String maxClass) {
         clickAddButton();
@@ -138,7 +160,7 @@ public class AddTermPage extends TermMajorPage {
         errorFields.put("Lỗi Max Lesson", TermElement.MAX_LESSON_ERROR);
         errorFields.put("Lỗi Max Class", TermElement.MAX_CLASS_ERROR);
 
-        /// Kiểm tra từng lỗi trong danh sách
+        // Kiểm tra từng lỗi trong danh sách
         for (Map.Entry<String, By> entry : errorFields.entrySet()) {
             // Kiểm tra nếu phần tử lỗi tồn tại thì lấy nội dung lỗi
             if (!driver.findElements(entry.getValue()).isEmpty()) {

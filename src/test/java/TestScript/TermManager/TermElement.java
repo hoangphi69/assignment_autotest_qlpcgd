@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 public class TermElement {
 
 //Component thêm term button
-    public static final By ADD_TERM = By.xpath("/html/body/div[2]/div[2]/div[3]/div/section/div/div/div/div[2]/div/div/div[1]/div[2]/div/div[2]/button");
+    public static final By ADD_TERM = By.xpath("/html/body/div[2]/div[2]/div[3]/div/section/div/div/div/div[2]/div/div/div[1]/div[2]/div/div[2]");
 
 // Component term field
     // Semester field
@@ -59,6 +59,7 @@ public class TermElement {
     public static final By PREV_TERM = By.id("tblTerm_previous");
 
 // Component xoá term
+    public static final By BUTTON_LABEL = By.xpath("td[last()]");
     public static final By CONFIRM_DELETE = By.xpath("/html/body/div[3]/div/div[6]/button[1]");
     public static final By CANCEL_DELETE = By.xpath("/html/body/div[3]/div/div[6]/button[3]");
 

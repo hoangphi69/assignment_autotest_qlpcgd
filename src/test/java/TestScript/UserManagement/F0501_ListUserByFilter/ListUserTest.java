@@ -34,7 +34,7 @@ public class ListUserTest extends ListUserPage{
         List<String> getUsersRole = getUserRoleInList();
 
         for (String userRole : getUsersRole) {
-            Assert.assertEquals(userRole, expected ,"Lỗi: Có vai trò giảng hiện không cùng với fitler");
+            Assert.assertEquals(userRole, expected ,"Lỗi: Có vai trò giảng viên hiện không cùng với fitler");
         }
     }
 

@@ -49,4 +49,9 @@ public class ListUserPage extends TermMajorPage{
         }
         return headerTexts;
     }
+
+    public void perform(String expectedOption) {
+        clickDisplayItem();
+        selectItemOption(expectedOption);
+    }
 }

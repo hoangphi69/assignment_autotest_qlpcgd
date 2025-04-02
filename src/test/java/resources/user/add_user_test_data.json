@@ -1,0 +1,44 @@
+{
+    "TC01" : {
+        "id": "F0504TC01",
+        "name" : "gitGud",
+        "email" : "gitGud.123456789012@vanlanguni.vn",
+        "type" : "Cơ hữu",
+        "role" : "BCN khoa"
+    },
+    "TC02" : {
+        "id": "F0504TC01",
+        "name" : "gitGud",
+        "email" : "gitGud.123456789012@vanlanguni.vn",
+        "type" : "Cơ hữu",
+        "role" : "BCN khoa"
+    },
+    "TC03" : {
+        "id": "F0504TC03",
+        "name" : "",
+        "email" : "gitGud.123456789012@vanlanguni.vn",
+        "type" : "Cơ hữu",
+        "role" : "BCN khoa"
+    },
+    "TC04" : {
+        "id": "F0504TC04",
+        "name" : "gitGud",
+        "email" : "",
+        "type" : "Cơ hữu",
+        "role" : "BCN khoa"
+    },
+    "TC05" : {
+        "id": "F0504TC05",
+        "name" : "gitGud",
+        "email" : "gitGud.123456789012@vanlanguni.vn",
+        "type" : "",
+        "role" : "BCN khoa"
+    },
+    "TC06" : {
+        "id": "F0504TC06",
+        "name" : "gitGud",
+        "email" : "gitGud.123456789012@vanlanguni.vn",
+        "type" : "Cơ hữu",
+        "role" : ""
+    }
+}

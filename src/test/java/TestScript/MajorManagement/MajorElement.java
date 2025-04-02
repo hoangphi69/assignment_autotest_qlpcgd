@@ -34,7 +34,7 @@ public class MajorElement {
 
     // Component button
     public static final By ADD_BUTTON = By.className("createNew");
-    public static final By CONFIRM_BUTTON = By.className("btn-primary");
+    public static final By CONFIRM_BUTTON = By.xpath("/html/body/div[3]/div[2]/form/div[5]/button[2]");
     public static final By CANCEL_BUTTON = By.id("btnClose");
 
     // Component remove

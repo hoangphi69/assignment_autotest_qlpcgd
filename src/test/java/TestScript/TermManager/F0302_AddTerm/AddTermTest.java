@@ -16,27 +16,32 @@ public class AddTermTest extends AddTermPage{
     super.navigateToTermPage();
   }
 
+  // Hàm lấy dữ liệu test từ JSON
+  private String[] getTestData(String testCaseID) {
+    JsonNode data = JsonReader.getTestData(FILE_NAME, testCaseID);
+    return new String[]{
+        data.get("id").asText(),
+        data.get("starYear").asText(),
+        data.get("endYear").asText(),
+        data.get("starWeek").asText(),
+        data.get("month").asText(),
+        data.get("year").asText(),
+        data.get("lesson").asText(),
+        data.get("class").asText()
+    };
+  }
+
   @Test
-  // TC01: Thêm ngành học mới với dữ liệu hợp lệ
-  public void TC01_ValidAddMajor() {
+  // TC01: Thêm học kỳ mới với dữ liệu hợp lệ
+  public void TC01_ValidAddTerm() {
     // Đọc dữ liệu truyền vào
-    JsonNode data = JsonReader.getTestData(FILE_NAME, "TC01");
-    String id = data.get("id").asText();
-    String starYear = data.get("starYear").asText();
-    String endYear = data.get("endYear").asText();
-    String starWeek = data.get("starWeek").asText();
-    String month = data.get("month").asText();
-    String year = data.get("year").asText();
-    String maxLesson = data.get("lesson").asText();
-    String maxClass = data.get("class").asText();
+    String[] testData = getTestData("TC01");
 
     // Thêm ngành học mới
-    System.out.println(">>Output context TC01 (ValidAddTerm)/S: ");
-    performAddTerm(id, starYear, endYear, starWeek, month, year, maxLesson, maxClass);
-    delay(1000);
-    getCellByTermID(id);
-
-    
+    System.out.println(">>Output context TC01: ");
+    performAddTerm(testData[0], testData[1], testData[2], testData[3], testData[4], testData[5], testData[6], testData[7]);
+    delay(300);
+    getCellByTermID(testData[0]);
 
     // Refresh trang
     driver.navigate().refresh();
@@ -47,21 +52,13 @@ public class AddTermTest extends AddTermPage{
   // TC02: Trùng ID ngành
   public void TC02_IDFailed() {
     // Dữ liệu truyền vào
-    JsonNode data = JsonReader.getTestData(FILE_NAME, "TC02");
-    String id = data.get("id").asText();
-    String starYear = data.get("starYear").asText();
-    String endYear = data.get("endYear").asText();
-    String starWeek = data.get("starWeek").asText();
-    String month = data.get("month").asText();
-    String year = data.get("year").asText();
-    String maxLesson = data.get("lesson").asText();
-    String maxClass = data.get("class").asText();
+    String[] testData = getTestData("TC02");
 
     // Thêm ngành học mới
-    System.out.println(">>Output context TC02 (ValidAddTerm)/F: ");
-    performAddTerm(id, starYear, endYear, starWeek, month, year, maxLesson, maxClass);
-    delay(1000);
-    getCellByTermID(id);
+    System.out.println(">>Output context TC02: ");
+    performAddTerm(testData[0], testData[1], testData[2], testData[3], testData[4], testData[5], testData[6], testData[7]);
+    delay(300);
+    getCellByTermID(testData[0]);
 
     // Refresh trang
     driver.navigate().refresh();
@@ -69,24 +66,16 @@ public class AddTermTest extends AddTermPage{
   }
 
   @Test
-  // TC03: ID ngành là chữ có dấu
-  public void TC03_IDAsText() {
+  // TC03: ID trống
+  public void TC03_IDBlank() {
     // Dữ liệu truyền vào
-    JsonNode data = JsonReader.getTestData(FILE_NAME, "TC03");
-    String id = data.get("id").asText();
-    String starYear = data.get("starYear").asText();
-    String endYear = data.get("endYear").asText();
-    String starWeek = data.get("starWeek").asText();
-    String month = data.get("month").asText();
-    String year = data.get("year").asText();
-    String maxLesson = data.get("lesson").asText();
-    String maxClass = data.get("class").asText();
+    String[] testData = getTestData("TC03");
 
     // Thêm ngành học mới
-    System.out.println(">>Output context TC03 (ValidAddTerm)/F: ");
-    performAddTerm(id, starYear, endYear, starWeek, month, year, maxLesson, maxClass);
-    delay(1000);
-    getCellByTermID(id);
+    System.out.println(">>Output context TC03: ");
+    performAddTerm(testData[0], testData[1], testData[2], testData[3], testData[4], testData[5], testData[6], testData[7]);
+    delay(300);
+    getCellByTermID(testData[0]);
 
     // Refresh trang
     driver.navigate().refresh();
@@ -94,24 +83,16 @@ public class AddTermTest extends AddTermPage{
   }
 
   @Test
-  // TC04: ID ngành có khoảng trắng
-  public void TC04_IDGotBlank() {
+  // TC04: bỏ trống năm bắt đầu
+  public void TC04_StartYearBlank() {
     // Dữ liệu truyền vào
-    JsonNode data = JsonReader.getTestData(FILE_NAME, "TC03");
-    String id = data.get("id").asText();
-    String starYear = data.get("starYear").asText();
-    String endYear = data.get("endYear").asText();
-    String starWeek = data.get("starWeek").asText();
-    String month = data.get("month").asText();
-    String year = data.get("year").asText();
-    String maxLesson = data.get("lesson").asText();
-    String maxClass = data.get("class").asText();
+    String[] testData = getTestData("TC04");
 
     // Thêm ngành học mới
-    System.out.println(">>Output context TC04 (IDGotBlank)/F: ");
-    performAddTerm(id, starYear, endYear, starWeek, month, year, maxLesson, maxClass);
-    delay(1000);
-    getCellByTermID(id);
+    System.out.println(">>Output context TC04: ");
+    performAddTerm(testData[0], testData[1], testData[2], testData[3], testData[4], testData[5], testData[6], testData[7]);
+    delay(300);
+    getCellByTermID(testData[0]);
 
     // Refresh trang
     driver.navigate().refresh();
@@ -119,24 +100,16 @@ public class AddTermTest extends AddTermPage{
   }
 
   @Test
-  // TC05: ID ngành bỏ trống
-  public void TC05_IDBlank() {
+  // TC05: bỏ trống năm kết thúc
+  public void TC05_EndYearBlank() {
     // Dữ liệu truyền vào
-    JsonNode data = JsonReader.getTestData(FILE_NAME, "TC03");
-    String id = data.get("id").asText();
-    String starYear = data.get("starYear").asText();
-    String endYear = data.get("endYear").asText();
-    String starWeek = data.get("starWeek").asText();
-    String month = data.get("month").asText();
-    String year = data.get("year").asText();
-    String maxLesson = data.get("lesson").asText();
-    String maxClass = data.get("class").asText();
+    String[] testData = getTestData("TC05");
 
     // Thêm ngành học mới
-    System.out.println(">>Output context TC05 (IDBlank)/F: ");
-    performAddTerm(id, starYear, endYear, starWeek, month, year, maxLesson, maxClass);
+    System.out.println(">>Output context TC05: ");
+    performAddTerm(testData[0], testData[1], testData[2], testData[3], testData[4], testData[5], testData[6], testData[7]);
     delay(300);
-    getCellByTermID(id);
+    getCellByTermID(testData[0]);
 
     // Refresh trang
     driver.navigate().refresh();
@@ -144,23 +117,16 @@ public class AddTermTest extends AddTermPage{
   }
 
   @Test
-  // TC06: Tên ngành bỏ trống
-  public void TC06_NameBlank() {
+  // TC06: Bỏ trống tuần
+  public void TC06_StartWeekBlank() {
     // Dữ liệu truyền vào
-    JsonNode data = JsonReader.getTestData(FILE_NAME, "TC03");
-    String id = data.get("id").asText();
-    String starYear = data.get("starYear").asText();
-    String endYear = data.get("endYear").asText();
-    String starWeek = data.get("starWeek").asText();
-    String month = data.get("month").asText();
-    String year = data.get("year").asText();
-    String maxLesson = data.get("lesson").asText();
-    String maxClass = data.get("class").asText();
+    String[] testData = getTestData("TC06");
 
     // Thêm ngành học mới
-    performAddTerm(id, starYear, endYear, starWeek, month, year, maxLesson, maxClass);
-    delay(1000);
-    getCellByTermID(id);
+    System.out.println(">>Output context TC06: ");
+    performAddTerm(testData[0], testData[1], testData[2], testData[3], testData[4], testData[5], testData[6], testData[7]);
+    delay(300);
+    getCellByTermID(testData[0]);
 
     // Refresh trang
     driver.navigate().refresh();
@@ -168,24 +134,33 @@ public class AddTermTest extends AddTermPage{
   }
 
   @Test
-  // TC07: Tên ngành viết tắt để trống
-  public void TC07_NameShortBlank() {
+  // TC07: tiết học để trống
+  public void TC07_LessionBlank() {
     // Dữ liệu truyền vào
-    JsonNode data = JsonReader.getTestData(FILE_NAME, "TC03");
-    String id = data.get("id").asText();
-    String starYear = data.get("starYear").asText();
-    String endYear = data.get("endYear").asText();
-    String starWeek = data.get("starWeek").asText();
-    String month = data.get("month").asText();
-    String year = data.get("year").asText();
-    String maxLesson = data.get("lesson").asText();
-    String maxClass = data.get("class").asText();
+    String[] testData = getTestData("TC07");
 
     // Thêm ngành học mới
-    System.out.println(">>Output context TC07 (AbbBlank)/F: ");
-    performAddTerm(id, starYear, endYear, starWeek, month, year, maxLesson, maxClass);
+    System.out.println(">>Output context TC07: ");
+    performAddTerm(testData[0], testData[1], testData[2], testData[3], testData[4], testData[5], testData[6], testData[7]);
     delay(300);
-    getCellByTermID(id);
+    getCellByTermID(testData[0]);
+
+    // Refresh trang
+    driver.navigate().refresh();
+    delay(300);
+  }
+
+  @Test
+  // TC07: lớp học để trống
+  public void TC08_ClassBlank() {
+    // Dữ liệu truyền vào
+    String[] testData = getTestData("TC08");
+
+    // Thêm ngành học mới
+    System.out.println(">>Output context TC08: ");
+    performAddTerm(testData[0], testData[1], testData[2], testData[3], testData[4], testData[5], testData[6], testData[7]);
+    delay(300);
+    getCellByTermID(testData[0]);
 
     // Refresh trang
     driver.navigate().refresh();

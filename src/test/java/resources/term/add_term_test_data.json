@@ -13,15 +13,15 @@
     "TC02" : {
         "id": "111",
         "starYear" : "2025",
-        "endYear" : "2026",
-        "starWeek" : "1",
+        "endYear" : "2028",
+        "starWeek" : "5",
         "month" : "Tháng năm",
         "year" : "2026",
-        "lesson" : "15",
-        "class" : "30"
+        "lesson" : "19",
+        "class" : "35"
     },
     "TC03" : {
-        "id": "",
+        "id": " ",
         "starYear" : "2025",
         "endYear" : "2026",
         "starWeek" : "1",
@@ -33,7 +33,7 @@
 
     "TC04" : {
         "id": "114",
-        "starYear" : "",
+        "starYear" : " ",
         "endYear" : "2026",
         "starWeek" : "1",
         "month" : "Tháng năm",
@@ -45,11 +45,41 @@
     "TC05" : {
         "id": "115",
         "starYear" : "2025",
-        "endYear" : "2026",
-        "starWeek" : "-5",
+        "endYear" : " ",
+        "starWeek" : "5",
         "month" : "Tháng năm",
         "year" : "2026",
         "lesson" : "15",
         "class" : "30"
+    },
+    "TC06" : {
+        "id": "116",
+        "starYear" : "2025",
+        "endYear" : "2026",
+        "starWeek" : " ",
+        "month" : "Tháng năm",
+        "year" : "2026",
+        "lesson" : "15",
+        "class" : "30"
+    },
+    "TC07" : {
+        "id": "117",
+        "starYear" : "2025",
+        "endYear" : "2026",
+        "starWeek" : " ",
+        "month" : "Tháng năm",
+        "year" : "2026",
+        "lesson" : " ",
+        "class" : "30"
+    },
+    "TC08" : {
+        "id": "115",
+        "starYear" : "2025",
+        "endYear" : "2026",
+        "starWeek" : " ",
+        "month" : "Tháng năm",
+        "year" : "2026",
+        "lesson" : "15",
+        "class" : " "
     }
 }

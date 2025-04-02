@@ -27,7 +27,7 @@ public class RemoveTermTest extends RemoveTermPage{
     System.out.println(">>Output context TC01: ");
 
     // Remove ngành học
-    performRemoveMajor(id);
+    performRemoveTerm(id);
     delay(300);
     getCellByTermID(id);
   }
@@ -40,7 +40,7 @@ public class RemoveTermTest extends RemoveTermPage{
     String id = data.get("id").asText();
 
     // Remove ngành học
-    performRemoveMajor(id);
+    performRemoveTerm(id);
     delay(300);
 
     // Lấy thông báo lỗi
