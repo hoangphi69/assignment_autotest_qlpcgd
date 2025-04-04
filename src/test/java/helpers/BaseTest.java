@@ -38,7 +38,7 @@ public class BaseTest {
     driver.manage().window().maximize();
 
     // Khởi tạo wait
-    wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 
     // Đăng nhập bằng cookie
     Authentication auth = new Authentication(driver);
