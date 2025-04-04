@@ -1,10 +1,12 @@
-package TestScript.UserManagement.F0501_ListUserByFilter;
+package TestScript.Test.UserManagement;
 
 import java.util.List;
 
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+
+import TestScript.Pages.UserPages.ListUserPage;
 
 public class ListUserTest extends ListUserPage{
 

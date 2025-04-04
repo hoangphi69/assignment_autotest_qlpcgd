@@ -1,8 +1,8 @@
 package TestScript.Pages.TermPages;
 
-import TestScript.PageElement;
+import TestScript.Pages.PageElement;
+import TestScript.Pages.TermElement;
 import TestScript.Pages.TermMajorPage;
-import TestScript.TermElement;
 
 public class ListTermPage extends TermMajorPage {
     

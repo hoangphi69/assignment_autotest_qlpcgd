@@ -5,8 +5,8 @@ package TestScript.Pages.TermPages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import TestScript.LockTermElement;
-import TestScript.PageElement;
+import TestScript.Pages.LockTermElement;
+import TestScript.Pages.PageElement;
 import TestScript.Pages.TermMajorPage;
 
 public class LockTermPage extends TermMajorPage {

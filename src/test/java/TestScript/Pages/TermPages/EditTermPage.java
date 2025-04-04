@@ -11,9 +11,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
-import TestScript.PageElement;
+import TestScript.Pages.PageElement;
+import TestScript.Pages.TermElement;
 import TestScript.Pages.TermMajorPage;
-import TestScript.TermElement;
 
 public class EditTermPage extends TermMajorPage{
 

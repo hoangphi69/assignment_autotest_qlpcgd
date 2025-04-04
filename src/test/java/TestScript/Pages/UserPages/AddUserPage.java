@@ -7,9 +7,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import TestScript.PageElement;
+import TestScript.Pages.PageElement;
 import TestScript.Pages.TermMajorPage;
-import TestScript.UserElement;
+import TestScript.Pages.UserElement;
 
 public class AddUserPage extends TermMajorPage {
 
@@ -85,25 +85,6 @@ public class AddUserPage extends TermMajorPage {
         WebElement okBtn = driver.findElement(PageElement.POPUP_ERROR_OK);
         okBtn.click();
     }
-    
-    // // Kiểm tra dữ liệu truyền vào
-    // public void verifyUserData(String userID, String userName, String userEmail, String type, String role) {
-    //     // Lấy dữ liệu từ bảng
-    //     List<String> actualData = getCellByTermID(userID);
-    //     if (actualData == null) {
-    //         System.out.println("Không tìm thấy dữ liệu vừa thêm!");
-    //         return;
-    //     }
-
-    //     // So sánh dữ liệu hiển thị với dữ liệu nhập
-    //     Assert.assertEquals(actualData.get(0), userID, "Lỗi tại Mã giảng viên:");
-    //     Assert.assertEquals(actualData.get(1), userName, "Lỗi tại Tên giảng viên:");
-    //     Assert.assertEquals(actualData.get(2), userEmail, "Lỗi tại Email:");
-    //     Assert.assertEquals(actualData.get(3), type, "Lỗi tại Loại giảng viên:");
-    //     Assert.assertEquals(actualData.get(4), role, "Lỗi tại Vai trò giảng viên:");
-
-    //     System.out.println("✅ Dữ liệu nhập vào và hiển thị khớp nhau!");
-    // }
 
     public void performAddUser(String userID, String userName, String userEmail, String type, String role) {
         clickAddButton();

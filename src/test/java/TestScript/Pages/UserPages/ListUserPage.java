@@ -1,4 +1,4 @@
-package TestScript.UserManagement.F0501_ListUserByFilter;
+package TestScript.Pages.UserPages;
 
 
 import java.util.ArrayList;
@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
 import TestScript.Pages.TermMajorPage;
-import TestScript.UserManagement.UserElement;
+import TestScript.Pages.UserElement;
 
 public class ListUserPage extends TermMajorPage{
     // Chọn filter loại GV

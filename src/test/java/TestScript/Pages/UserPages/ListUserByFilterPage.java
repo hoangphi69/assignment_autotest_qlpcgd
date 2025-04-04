@@ -1,6 +1,6 @@
 package TestScript.Pages.UserPages;
 
-import TestScript.PageElement;
+import TestScript.Pages.PageElement;
 import TestScript.Pages.TermMajorPage;
 
 public class ListUserByFilterPage extends TermMajorPage {

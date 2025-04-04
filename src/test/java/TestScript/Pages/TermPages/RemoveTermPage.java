@@ -8,9 +8,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
-import TestScript.PageElement;
+import TestScript.Pages.PageElement;
+import TestScript.Pages.TermElement;
 import TestScript.Pages.TermMajorPage;
-import TestScript.TermElement;
 
 public class RemoveTermPage extends TermMajorPage{
     // Nhấn vào nút remove đúng

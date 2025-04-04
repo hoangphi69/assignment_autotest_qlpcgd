@@ -7,7 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import TestScript.Pages.TermMajorPage;
-import TestScript.UserElement;
+import TestScript.Pages.UserElement;
 
 public class ListUserByDisplayPage extends TermMajorPage{
 

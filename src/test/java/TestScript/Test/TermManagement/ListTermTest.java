@@ -4,9 +4,9 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import TestScript.PageElement;
+import TestScript.Pages.PageElement;
+import TestScript.Pages.TermElement;
 import TestScript.Pages.TermPages.ListTermPage;
-import TestScript.TermElement;
 
 public class ListTermTest extends ListTermPage{
 

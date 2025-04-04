@@ -1,8 +1,6 @@
 package TestScript.Pages.MajorPages;
 
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -10,7 +8,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import TestScript.PageElement;
+import TestScript.Pages.PageElement;
 import TestScript.Pages.TermMajorPage;
 
 public class EditMajorPage extends TermMajorPage{ 
@@ -125,27 +123,6 @@ public class EditMajorPage extends TermMajorPage{
 
         if (!driver.findElements(MajorElement.CONFIRM_BUTTON).isEmpty()) {
             clickConfirmButton();
-        }
-
-        Map<String, By> errorFields = new LinkedHashMap<>();
-        errorFields.put("Lỗi mã ngành:", MajorElement.MAJOR_ID_FIELD_ERROR);
-        errorFields.put("Lỗi đặt tên:", MajorElement.MAJOR_NAME_FIELD_ERROR);
-        errorFields.put("Lỗi đặt tên rút gọn: ", MajorElement.MAJOR_ABBREV_FIELD_ERROR);
-        errorFields.put("Lỗi chọn chương trình đào tạo: ", MajorElement.MAJOR_PROGRAM_SELECT_ERROR);
-
-        // Kiểm tra từng lỗi trong danh sách
-        for (Map.Entry<String, By> entry : errorFields.entrySet()) {
-            // Kiểm tra nếu phần tử lỗi tồn tại thì lấy nội dung lỗi
-            if (!driver.findElements(entry.getValue()).isEmpty()) {
-                String errorMessage = getFormErrorMessage(entry.getValue());
-                System.out.println(entry.getKey() + ": " + errorMessage);
-            }
-        }
-
-        if (!driver.findElements(PageElement.POPUP_ERROR_TERM).isEmpty()) {
-            String actualMessage = getPopupErrorMessage();
-            System.out.println("Message:" + actualMessage);
-            clickPopupErrorOK();
         }
       }
     }

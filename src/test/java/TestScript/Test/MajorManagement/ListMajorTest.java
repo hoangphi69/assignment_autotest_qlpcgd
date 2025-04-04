@@ -4,9 +4,9 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import TestScript.PageElement;
 import TestScript.Pages.MajorPages.ListMajorPage;
 import TestScript.Pages.MajorPages.MajorElement;
+import TestScript.Pages.PageElement;
 
 public class ListMajorTest extends ListMajorPage {
 

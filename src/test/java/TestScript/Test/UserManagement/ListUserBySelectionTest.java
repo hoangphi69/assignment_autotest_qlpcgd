@@ -3,7 +3,8 @@ package TestScript.Test.UserManagement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import TestScript.PageElement;
+
+import TestScript.Pages.PageElement;
 import TestScript.Pages.UserPages.ListUserByFilterPage;
 
 public class ListUserBySelectionTest extends ListUserByFilterPage{

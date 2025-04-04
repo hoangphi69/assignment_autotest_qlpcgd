@@ -1,7 +1,7 @@
 package TestScript.Pages.MajorPages;
 import org.testng.Assert;
 
-import TestScript.PageElement;
+import TestScript.Pages.PageElement;
 import TestScript.Pages.TermMajorPage;
 
 public class ListMajorPage extends TermMajorPage {

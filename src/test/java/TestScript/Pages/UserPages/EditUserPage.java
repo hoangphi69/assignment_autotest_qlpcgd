@@ -8,10 +8,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import TestScript.PageElement;
-import TestScript.TermElement;
-import TestScript.UserElement;
+import TestScript.Pages.PageElement;
+import TestScript.Pages.TermElement;
 import TestScript.Pages.TermMajorPage;
+import TestScript.Pages.UserElement;
 
 public class EditUserPage extends TermMajorPage{
     // Nhấn vào nút edit đúng

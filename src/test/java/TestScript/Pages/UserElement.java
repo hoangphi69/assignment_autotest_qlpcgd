@@ -1,4 +1,4 @@
-package TestScript;
+package TestScript.Pages;
 
 import org.openqa.selenium.By;
 
