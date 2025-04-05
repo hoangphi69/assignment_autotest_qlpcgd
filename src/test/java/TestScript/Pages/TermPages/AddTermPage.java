@@ -1,9 +1,12 @@
 package TestScript.Pages.TermPages;
 
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -105,27 +108,74 @@ public class AddTermPage extends TermMajorPage {
         okBtn.click();
     }
 
-    // // Kiểm tra dữ liệu truyền vào
-    // public void verifyTermData(String termID, String startYear, String endYear, String startWeek,
-    //                        String monthSelect, String yearSelect, String maxLesson, String maxClass) {
-    //     // Lấy dữ liệu từ bảng
-    //     List<String> actualData = getCellByTermID(termID);
-    //     if (actualData == null) {
-    //         Assert.fail("Không tìm thấy dữ liệu vừa thêm!");
-    //         return;
-    //     }
+    // Tìm hàng chứa mã ngành trong table
+    public WebElement findTermRowByID(String id) {
+      try {
 
-    //     // So sánh dữ liệu hiển thị với dữ liệu nhập
-    //     Assert.assertEquals(actualData.get(0), termID, "Lỗi tại Term ID:");
-    //     Assert.assertEquals(actualData.get(1), startYear, "Lỗi tại Start Year:");
-    //     Assert.assertEquals(actualData.get(2), endYear, "Lỗi tại End Year:");
-    //     Assert.assertEquals(actualData.get(3), startWeek, "Lỗi tại Start Week:");
-    //     Assert.assertEquals(actualData.get(4), monthSelect + "/" + yearSelect, "Lỗi tại Date Picker:");
-    //     Assert.assertEquals(actualData.get(5), maxLesson, "Lỗi tại Max Lesson:");
-    //     Assert.assertEquals(actualData.get(6), maxClass, "Lỗi tại Max Class:");
+        WebElement table = wait.until(ExpectedConditions.visibilityOfElementLocated(PageElement.TABLE_TERM));
+        List<WebElement> rows = table.findElements(By.xpath("./tbody/tr"));
 
-    //     System.out.println("✅ Dữ liệu nhập vào và hiển thị khớp nhau!");
-    // }
+        for (WebElement row : rows) {
+          WebElement idCell = row.findElement(By.xpath("./td[contains(@class, 'sorting_1')]"));
+          String termID = idCell.getText().trim();
+          if (termID.equals(id)) {
+            return row;
+          }
+        }
+        System.out.println("Không tìm thấy học kỳ: " + id);
+        return null;
+      } catch (NoSuchElementException | TimeoutException e) {
+        System.out.println("Không tìm thấy bảng hoặc học kỳ: " + id);
+        return null;
+      }
+    }
+
+    // Lấy số lượng hàng trong bảng
+    public int getRowNumbers() {
+      WebElement table = wait.until(ExpectedConditions.visibilityOfElementLocated(PageElement.TABLE_TERM));
+      List<WebElement> rows = table.findElements(By.xpath("./tbody/tr"));
+      int rowCount = rows.size();
+      System.out.println("Số lượng hàng trong bảng: " + rowCount);
+      return rowCount;
+    }
+
+    // kiểm tra hàng chứa id tồn tại
+    public boolean performCheckExisted(String id) {
+      // Tìm ngành theo mã ngành
+      searchID(id);
+      delay(500);
+
+      // Tìm dòng chứa mã ngành cần tìm
+      WebElement targetRow = findTermRowByID(id);
+      delay(500);
+
+      return targetRow != null;
+    }
+
+    // kiểm tra thông tin của hàng
+    public boolean performCheckInformation(String id, String name, String abbrev, String program) {
+      // Tìm ngành theo mã ngành
+      searchID(id);
+      delay(500);
+
+      // Tìm dòng chứa mã ngành cần tìm
+      WebElement targetRow = findMajorRowByID(id);
+      delay(500);
+
+      // Kiểm tra xem dòng đó có tồn tại hay không
+      if (targetRow == null) {
+        return false;
+      }
+
+      // Kiểm tra thông tin chi tiết của ngành học
+      String majorName = targetRow.findElement(PageElement.TABLE_CELL_MAJOR_NAME).getText();
+      String majorAbbrev = targetRow.findElement(PageElement.TABLE_CELL_MAJOR_ABBREV).getText();
+      String majorProgram = targetRow.findElement(PageElement.TABLE_CELL_MAJOR_PROGRAM).getText();
+      if (!majorName.equals(name) || !majorAbbrev.equals(abbrev) || !majorProgram.equals(program)) {
+        return false;
+      }
+      return true;
+    }
 
     public void performAddTerm(String termID, String startYear, String endYear, String startWeek, String monthSelect,
             String yearSelect, String maxLesson, String maxClass) {
@@ -151,28 +201,5 @@ public class AddTermPage extends TermMajorPage {
         mclass(maxClass);
 
         clickConfirmButton();
-
-        // Danh sách các lỗi cần kiểm tra
-        Map<String, By> errorFields = new LinkedHashMap<>();
-        errorFields.put("Lỗi Term ID", TermElement.SEMESTER_FIELD_ERROR);
-        errorFields.put("Lỗi Start Week", TermElement.START_WEEK_FIELD_ERROR);
-        errorFields.put("Lỗi Date Picker", TermElement.DATE_PICKER_ERROR);
-        errorFields.put("Lỗi Max Lesson", TermElement.MAX_LESSON_ERROR);
-        errorFields.put("Lỗi Max Class", TermElement.MAX_CLASS_ERROR);
-
-        // Kiểm tra từng lỗi trong danh sách
-        for (Map.Entry<String, By> entry : errorFields.entrySet()) {
-            // Kiểm tra nếu phần tử lỗi tồn tại thì lấy nội dung lỗi
-            if (!driver.findElements(entry.getValue()).isEmpty()) {
-                String errorMessage = getFormErrorMessage(entry.getValue());
-                System.out.println(entry.getKey() + ": " + errorMessage);
-            }
-        }
-
-        if (!driver.findElements(PageElement.POPUP_ERROR_TERM).isEmpty()) {
-            String actualMessage = getPopupErrorMessage();
-            System.out.println("Message:" + actualMessage);
-            clickPopupErrorOK();
-        }
     }
 }

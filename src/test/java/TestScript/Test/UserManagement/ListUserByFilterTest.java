@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 
 import TestScript.Pages.UserPages.ListUserPage;
 
-public class ListUserTest extends ListUserPage{
+public class ListUserByFilterTest extends ListUserPage{
 
     @BeforeTest
     @Override
