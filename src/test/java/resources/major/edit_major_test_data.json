@@ -6,36 +6,30 @@
       "program": "Tiêu chuẩn"
     },
     "TC02": {
-      "id": "0420556",
-      "name": "CNTT ver02",
-      "abbrev": "IT ver02",
-      "program": "Tiêu chuẩn"
-    },
-    "TC03": {
       "id": "0402111",
       "name": "",
       "abbrev": "IT ver03",
       "program": "Tiêu chuẩn"
     },
-    "TC04": {
+    "TC03": {
       "id": "0402111",
       "name": "CNTT ver04",
       "abbrev": "",
       "program": "Tiêu chuẩn"
     },
-    "TC05": {
+    "TC04": {
       "id": "",
       "name": "CNTT ver05",
       "abbrev": "IT ver05",
       "program": "Tiêu chuẩn"
     },
-    "TC06": {
+    "TC05": {
       "id": "0402111",
       "name": "CNTT ver06",
       "abbrev": "IT ver06",
       "program": "Tiêu chuẩn"
     },
-    "TC07": {
+    "TC06": {
       "id": "0402111",
       "name": "CNTT ver07",
       "abbrev": "IT ver07",

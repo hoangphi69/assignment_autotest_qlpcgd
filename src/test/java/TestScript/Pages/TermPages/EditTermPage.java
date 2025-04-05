@@ -7,6 +7,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -119,6 +121,79 @@ public class EditTermPage extends TermMajorPage{
         okBtn.click();
     }
 
+    // Tìm hàng chứa mã ngành trong table
+    public WebElement findTermRowByID(String id) {
+      try {
+
+        WebElement table = wait.until(ExpectedConditions.visibilityOfElementLocated(PageElement.TABLE_MAJOR));
+        List<WebElement> rows = table.findElements(By.xpath("./tbody/tr"));
+
+        for (WebElement row : rows) {
+          WebElement idCell = row.findElement(By.xpath("./td[contains(@class, 'sorting_1')]"));
+          String termID = idCell.getText().trim();
+          if (termID.equals(id)) {
+            return row;
+          }
+        }
+        System.out.println("Không tìm thấy ID: " + id);
+        return null;
+      } catch (NoSuchElementException | TimeoutException e) {
+        System.out.println("Không tìm thấy bảng hoặc ID: " + id);
+        return null;
+      }
+    }
+
+    // Lấy số lượng hàng trong bảng
+    public int getRowNumbers() {
+      WebElement table = wait.until(ExpectedConditions.visibilityOfElementLocated(PageElement.TABLE_TERM));
+      List<WebElement> rows = table.findElements(By.xpath("./tbody/tr"));
+      int rowCount = rows.size();
+      System.out.println("Số lượng hàng trong bảng: " + rowCount);
+      return rowCount;
+    }
+
+    // kiểm tra hàng chứa id tồn tại
+    public boolean performCheckExisted(String id) {
+      // Tìm ngành theo mã ngành
+      searchID(id);
+      delay(500);
+
+      // Tìm dòng chứa mã ngành cần tìm
+      WebElement targetRow = findTermRowByID(id);
+      delay(500);
+
+      return targetRow != null;
+    }
+
+    // kiểm tra thông tin của hàng
+    public boolean performCheckInformation(String id, String name, String abbrev, String program) {
+      // Tìm ngành theo mã ngành
+      searchID(id);
+      delay(500);
+
+      // Tìm dòng chứa mã ngành cần tìm
+      WebElement targetRow = findTermRowByID(id);
+      delay(500);
+
+      // Kiểm tra xem dòng đó có tồn tại hay không
+      if (targetRow == null) {
+        return false;
+      }
+
+    // Kiểm tra thông tin chi tiết của ngành học
+    String termStartYear = targetRow.findElement(PageElement.TABLE_CELL_TERM_STARTYEAR).getText();
+    String termEndYear = targetRow.findElement(PageElement.TABLE_CELL_TERM_ENDYEAR).getText();
+    String termStartWeek = targetRow.findElement(PageElement.TABLE_CELL_TERM_STARTWEEK).getText();
+    String termStartDate = targetRow.findElement(PageElement.TABLE_CELL_TERM_STARTDATE).getText();
+    String maxLesson = targetRow.findElement(PageElement.TABLE_CELL_TERM_MLESSON).getText();
+    String maxClass = targetRow.findElement(PageElement.TABLE_CELL_TERM_MCLASS).getText();
+    
+    if (!majorName.equals(name) || !majorAbbrev.equals(abbrev) || !majorProgram.equals(program)) {
+      return false;
+    }
+    return true;
+  }
+
     public void performEditTerm(String termID, String startYear, String endYear, String startWeek, String monthSelect, String yearSelect, String maxLesson, String maxClass) {
         searchID(termID);
         delay(500);
@@ -148,20 +223,5 @@ public class EditTermPage extends TermMajorPage{
         errorFields.put("Lỗi Date Picker", TermElement.DATE_PICKER_ERROR);
         errorFields.put("Lỗi Max Lesson", TermElement.MAX_LESSON_ERROR);
         errorFields.put("Lỗi Max Class", TermElement.MAX_CLASS_ERROR);
-
-        // Kiểm tra từng lỗi trong danh sách
-        for (Map.Entry<String, By> entry : errorFields.entrySet()) {
-            // Kiểm tra nếu phần tử lỗi tồn tại thì lấy nội dung lỗi
-            if (!driver.findElements(entry.getValue()).isEmpty()) {
-                String errorMessage = getFormErrorMessage(entry.getValue());
-                System.out.println(entry.getKey() + ": " + errorMessage);
-            }
-        }
-
-        if (!driver.findElements(PageElement.POPUP_ERROR_TERM).isEmpty()) {
-            String actualMessage = getPopupErrorMessage();
-            System.out.println("Message:" + actualMessage);
-            clickPopupErrorOK();
-        }
     }
 }

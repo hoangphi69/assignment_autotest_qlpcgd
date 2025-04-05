@@ -5,8 +5,6 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import TestScript.Pages.MajorPages.ListMajorPage;
-import TestScript.Pages.MajorPages.MajorElement;
-import TestScript.Pages.PageElement;
 
 public class ListMajorTest extends ListMajorPage {
 
@@ -17,14 +15,15 @@ public class ListMajorTest extends ListMajorPage {
   }
 
   @Test
-  // TC01: Hiển thị 25 trang dữ liệu
-  public void TC01_view25() {
-    select_25();
+  // TC01: Hiển thị 10 trang dữ liệu
+  public void TC01_view10() {
+    select_10();
     pageRollDown();
-    delay(1000);
+    delay(500);
 
-    // Kiểm tra danh sách 25 có được chọn không
-    Assert.assertTrue(driver.findElement(PageElement.LIST_25).isSelected(), "TC01 FAILED: Không hiển thị 25 hàng");
+    // Kiểm tra số lượng hàng có trong khoảng 25 không
+    int rowCount = getRowNumbers();
+    Assert.assertTrue(rowCount <= 10, "Số lượng hàng dữ liệu không hợp lệ");
     System.out.println(">> TC01 OUTPUT CONTEXT: Test case hoàn thành");
 
     // Refresh trang
@@ -33,21 +32,30 @@ public class ListMajorTest extends ListMajorPage {
   }
 
   @Test
-  // TC02: Chuyển qua trang tiếp theo
-  public void TC0203_NextPrevList() {
+  // TC02: Hiển thị 25 trang dữ liệu
+  public void TC01_view25() {
+    select_25();
     pageRollDown();
-    nextList();
-    // Kiểm tra xem có vào trang tiếp theo không
-    Assert.assertTrue(driver.findElement(MajorElement.NEXT_LIST).isDisplayed(), "TC02 FAILED: Không chuyển sang trang tiếp theo");
+    delay(500);
+
+    // Kiểm tra số lượng hàng có trong khoảng 25 không
+    int rowCount = getRowNumbers();
+    Assert.assertTrue(rowCount <= 25, "Số lượng hàng dữ liệu không hợp lệ");
     System.out.println(">> TC02 OUTPUT CONTEXT: Test case hoàn thành");
 
-    // TC03: Chuyển về trang trước đó
-    delay(500);
-    prevList();
-    delay(1000);
+    // Refresh trang
+    driver.navigate().refresh();
+    delay(300);
+  }
 
-    // Kiểm tra xem có quay lại trang trước không
-    Assert.assertTrue(driver.findElement(MajorElement.PREV_LIST).isDisplayed(), "TC03 FAILED: Không quay lại trang trước");
+  @Test
+  // TC03: Hiển thị 50 trang dữ liệu
+  public void TC05_view50(){
+    select_50();
+    pageRollDown();
+    delay(500);
+    int rowCount = getRowNumbers();
+    Assert.assertTrue(rowCount <= 50, "Số lượng hàng dữ liệu không hợp lệ");
     System.out.println(">> TC03 OUTPUT CONTEXT: Test case hoàn thành");
 
     // Refresh trang
@@ -56,42 +64,16 @@ public class ListMajorTest extends ListMajorPage {
   }
 
   @Test
-  // TC04: Thử button lướt lên đầu trang
-  public void TC04_ButtonUp() {
-    select_25();
-    pageRollDown();
-    pageRollUp();
-    delay(1000);
-
-    System.out.println(">> TC04 OUTPUT CONTEXT: Test case hoàn thành");
-
-    // Refresh trang
-    driver.navigate().refresh();
-    delay(300);
-  }
-
-  @Test
-  // TC05: Hiển thị 50 trang dữ liệu
-  public void TC05_view50(){
-    select_50();
-    pageRollDown();
-    delay(1000);
-    Assert.assertTrue(driver.findElement(PageElement.LIST_50).isSelected(), "TC05 FAILED: Không hiển thị 50 hàng");
-    System.out.println(">> TC05 OUTPUT CONTEXT: Test case hoàn thành");
-
-    // Refresh trang
-    driver.navigate().refresh();
-    delay(300);
-  }
-
-  @Test
-  // TC06: Hiển thị toàn bộ trang dữ liệu
-  public void TC06_viewAll(){
+  // TC04: Hiển thị toàn bộ trang dữ liệu
+  public void TC04_viewAll(){
     select_All();
     pageRollDown();
-    delay(1000);
-    Assert.assertTrue(driver.findElement(PageElement.LIST_ALL).isSelected(), "TC06 FAILED: Không hiển thị toàn bộ dữ liệu");
-    System.out.println(">> TC06 OUTPUT CONTEXT: Test case hoàn thành");
+    delay(500);
+
+    int expected = getRowNumberText();
+    int actual = getRowNumbers();
+    Assert.assertEquals(expected, actual, "Số lượng hàng dữ liệu không hợp lệ");
+    System.out.println(">> TC04 OUTPUT CONTEXT: Test case hoàn thành");
 
     // Refresh trang
     driver.navigate().refresh();

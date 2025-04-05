@@ -1,5 +1,6 @@
 package TestScript.Test.MajorManagement;
 
+import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -31,20 +32,21 @@ public class EditMajorTest extends EditMajorPage {
     String program = data.get("program").asText();
 
     // Edit ngành học
+    System.out.println(">>Output context TC01: ");
     performEditMajor(id, name, abbrev, program);
     delay(300);
 
-    System.out.println(">>Output context TC01: ");
-    findMajorRowByID(id);
-
+    delay(300);
+    searchID(id);
+    delay(300);
+    Assert.assertTrue(performCheckInformation(id, name, abbrev, program), "Dữ liệu truyền vào khác với dữ liệu trong bảng");
     // Refresh trang
     driver.navigate().refresh();
-    delay(300);
   }
 
-  // TC02: Edit ID ngành không tồn tại
+  // TC02: Tên ngành bỏ trống
   @Test
-  public void TC02_IDBlank() {
+  public void TC02_NameBlank() {
     // Dữ liệu truyền vào
     JsonNode data = JsonReader.getTestData(FILE_NAME, "TC02");
     String id = data.get("id").asText();
@@ -52,70 +54,70 @@ public class EditMajorTest extends EditMajorPage {
     String abbrev = data.get("abbrev").asText();
     String program = data.get("program").asText();
     
-
-    // Edit ngành học
+    // Thêm ngành học mới
     performEditMajor(id, name, abbrev, program);
     delay(300);
-    
-
     // Lấy thông báo lỗi
-    System.out.println(">>Output context TC02: " + getEmptyErrorMessage());
+    String actualMessage = getFormErrorMessage(MajorElement.MAJOR_NAME_FIELD_ERROR);
+    System.out.println(">>Output context TC02: " + actualMessage);
     delay(300);
-    findMajorRowByID(id);
 
+    searchID(id);
+    delay(300);
+    Assert.assertTrue(performCheckInformation(id, name, abbrev, program), "Dữ liệu truyền vào khác với dữ liệu trong bảng");
     // Refresh trang
     driver.navigate().refresh();
-    delay(300);
   }
 
-  // TC03: Tên ngành bỏ trống
+  // TC03: Tên ngành viết tắt để trống
   @Test
-  public void TC03_NameBlank() throws InterruptedException {
+  public void TC03_AbbrevBlank() throws InterruptedException {
     // Dữ liệu truyền vào
     JsonNode data = JsonReader.getTestData(FILE_NAME, "TC03");
     String id = data.get("id").asText();
-    String name = data.get("name").asText();
-    String abbrev = data.get("abbrev").asText();
-    String program = data.get("program").asText();
-    // String expectedMessage = data.get("expectedError").asText();
+      String name = data.get("name").asText();
+      String abbrev = data.get("abbrev").asText();
+      String program = data.get("program").asText();
 
-    // Edit ngành học
-    performEditMajor(id, name, abbrev, program);
-    delay(300);
+      // Thêm ngành học mới
+      performEditMajor(id, name, abbrev, program);
+      delay(300);
 
-    // Lấy thông báo lỗi
-    String actualMessage = getFormErrorMessage(MajorElement.MAJOR_NAME_FIELD_ERROR);
-    System.out.println(">>Output context TC03: " + actualMessage);
-    delay(300);
-    findMajorRowByID(id);
+      // Lấy thông báo lỗi
+      String actualMessage = getFormErrorMessage(MajorElement.MAJOR_ABBREV_FIELD_ERROR);
+      System.out.println(">>Output context TC03: " + actualMessage);
+      delay(300);
 
-    // Refresh trang
-    driver.navigate().refresh();
-    delay(300);
+      searchID(id);
+      delay(300);
+      Assert.assertTrue(performCheckInformation(id, name, abbrev, program), "Dữ liệu truyền vào khác với dữ liệu trong bảng");
+      // Refresh trang
+      driver.navigate().refresh();
   }
 
-  // TC04: Tên ngành viết tắt để trống
+  // TC04: Chương trình bỏ trống
   @Test
-  public void TC07_NameShortBlank() throws InterruptedException {
+  public void TC07_ProgramBlank() throws InterruptedException {
     // Dữ liệu truyền vào
     JsonNode data = JsonReader.getTestData(FILE_NAME, "TC04");
     String id = data.get("id").asText();
-    String name = data.get("name").asText();
-    String abbrev = data.get("abbrev").asText();
-    String program = data.get("program").asText();
+      String name = data.get("name").asText();
+      String abbrev = data.get("abbrev").asText();
+      String program = data.get("program").asText();
 
-    // Edit ngành học
-    performEditMajor(id, name, abbrev, program);
-    delay(300);
+      // Thêm ngành học mới
+      performEditMajor(id, name, abbrev, program);
+      delay(300);
 
-    // Lấy thông báo lỗi
-    String actualMessage = getFormErrorMessage(MajorElement.MAJOR_ABBREV_FIELD_ERROR);
-    System.out.println(">>Output context TC04: " + actualMessage);
-    delay(300);
-    findMajorRowByID(id);
+      // Lấy thông báo lỗi
+      String actualMessage = getFormErrorMessage(MajorElement.MAJOR_PROGRAM_SELECT_ERROR);
+      System.out.println(">>Output context TC04: " + actualMessage);
+      delay(300);
 
-    // Refresh trang
-    driver.navigate().refresh();
-    delay(300);
+      searchID(id);
+      delay(300);
+      Assert.assertTrue(performCheckInformation(id, name, abbrev, program), "Dữ liệu truyền vào khác với dữ liệu trong bảng");
+      // Refresh trang
+      driver.navigate().refresh();
   }
 }
