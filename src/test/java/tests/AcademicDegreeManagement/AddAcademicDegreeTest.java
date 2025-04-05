@@ -9,7 +9,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 
 import helpers.BaseTest;
 import helpers.JsonReader;
-import pages.academic_degree.AcademicDegreePage;
+import pages.AcademicDegreePage;
 
 public class AddAcademicDegreeTest extends BaseTest {
     private String[] inputs;
@@ -67,9 +67,9 @@ public class AddAcademicDegreeTest extends BaseTest {
         Assert.assertTrue(row == null, "Hàng không được thêm nhưng vẫn tìm thấy với ID: " + inputs[0]);
     }
 
-    // TC03: Bỏ trống các trường
+    // TC03: ID có dấu
     @Test
-    public void TC03_EmptyFields() {
+    public void TC03_IDSpecialChar() {
         inputs = getInput("TC03");
         output = getOutput("TC03");
 
@@ -77,19 +77,9 @@ public class AddAcademicDegreeTest extends BaseTest {
         page.performAddAcademicDegree(inputs);
 
         // Kiểm tra thông báo lỗi
-        String[] expected = {
-                output.get("id-error").asText(),
-                output.get("name-error").asText(),
-                output.get("level-error").asText()
-        };
-        String[] actuals = {
-                page.getAcademicDegreeIDError(),
-                page.getAcademicDegreeNameError(),
-                page.getAcademicDegreeLevelError()
-        };
-        Assert.assertEquals(actuals[0], expected[0], "Thông báo lỗi trường ID không khớp");
-        Assert.assertEquals(actuals[1], expected[1], "Thông báo lỗi trường Tên không khớp");
-        Assert.assertEquals(actuals[2], expected[2], "Thông báo lỗi trường Cấp độ không khớp");
+        String expected = output.get("id-error").asText();
+        String actual = page.getAcademicDegreeIDError();
+        Assert.assertEquals(actual, expected, "Thông báo lỗi trường ID không khớp");
 
         page.clickCancelButton();
 
@@ -99,9 +89,9 @@ public class AddAcademicDegreeTest extends BaseTest {
         Assert.assertTrue(row == null, "Hàng không được thêm nhưng vẫn tìm thấy với ID: " + inputs[0]);
     }
 
-    // TC04: Nhập mã học hàm, học vị có khoảng trắng và dấu
+    // TC04: ID có chứa khoảng trắng
     @Test
-    public void TC04_WhiteSpaceAndSpecialChar() {
+    public void TC04_IDWhiteSpace() {
         inputs = getInput("TC04");
         output = getOutput("TC04");
 
@@ -121,9 +111,9 @@ public class AddAcademicDegreeTest extends BaseTest {
         Assert.assertTrue(row == null, "Hàng không được thêm nhưng vẫn tìm thấy với ID: " + inputs[0]);
     }
 
-    // TC05: Nhập tên học hàm, học vị có khoảng trắng
+    // TC05: ID bỏ trống
     @Test
-    public void TC05_NameFieldWhiteSpace() {
+    public void TC05_IDBlank() {
         inputs = getInput("TC05");
         output = getOutput("TC05");
 
@@ -131,9 +121,53 @@ public class AddAcademicDegreeTest extends BaseTest {
         page.performAddAcademicDegree(inputs);
 
         // Kiểm tra thông báo lỗi
+        String expected = output.get("id-error").asText();
+        String actual = page.getAcademicDegreeIDError();
+        Assert.assertEquals(actual, expected, "Thông báo lỗi trường ID không khớp");
+
+        page.clickCancelButton();
+
+        // Kiểm tra xem hàng có được thêm không
+        page.searchTable(inputs[0]);
+        WebElement row = page.getRow(inputs[0]);
+        Assert.assertTrue(row == null, "Hàng không được thêm nhưng vẫn tìm thấy với ID: " + inputs[0]);
+    }
+
+    // TC06: Tên bỏ trống
+    @Test
+    public void TC06_NameBlank() {
+        inputs = getInput("TC06");
+        output = getOutput("TC06");
+
+        // Thực hiện thêm mới học hàm, học vị
+        page.performAddAcademicDegree(inputs);
+
+        // Kiểm tra thông báo lỗi
         String expected = output.get("name-error").asText();
         String actual = page.getAcademicDegreeNameError();
-        Assert.assertEquals(actual, expected, "Thông báo lỗi trường Tên không khớp");
+        Assert.assertEquals(actual, expected, "Thông báo lỗi trường ID không khớp");
+
+        page.clickCancelButton();
+
+        // Kiểm tra xem hàng có được thêm không
+        page.searchTable(inputs[0]);
+        WebElement row = page.getRow(inputs[0]);
+        Assert.assertTrue(row == null, "Hàng không được thêm nhưng vẫn tìm thấy với ID: " + inputs[0]);
+    }
+
+    // TC07: Tên là khoảng trắng
+    @Test
+    public void TC07_NameWhiteSpace() {
+        inputs = getInput("TC07");
+        output = getOutput("TC07");
+
+        // Thực hiện thêm mới học hàm, học vị
+        page.performAddAcademicDegree(inputs);
+
+        // Kiểm tra thông báo lỗi
+        String expected = output.get("name-error").asText();
+        String actual = page.getAcademicDegreeNameError();
+        Assert.assertEquals(actual, expected, "Thông báo lỗi trường ID không khớp");
 
         page.clickCancelButton();
 

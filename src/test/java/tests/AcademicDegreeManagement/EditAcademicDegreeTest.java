@@ -9,7 +9,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 
 import helpers.BaseTest;
 import helpers.JsonReader;
-import pages.academic_degree.AcademicDegreePage;
+import pages.AcademicDegreePage;
 
 public class EditAcademicDegreeTest extends BaseTest {
     private String[] inputs;
@@ -71,9 +71,9 @@ public class EditAcademicDegreeTest extends BaseTest {
         Assert.assertEquals(actuals[2], expected[2], "Cấp độ không khớp");
     }
 
-    // TC03: Bỏ trống các trường
+    // TC03: Tên học hàm, học vị bỏ trống
     @Test
-    public void TC03_EmptyFields() {
+    public void TC03_NameBlank() {
         inputs = getInput("TC03");
         output = getOutput("TC03");
 
@@ -86,16 +86,9 @@ public class EditAcademicDegreeTest extends BaseTest {
         page.performEditAcademicDegree(inputs);
 
         // Kiểm tra thông báo lỗi
-        String[] expectedMessage = {
-                output.get("name-error").asText(),
-                output.get("level-error").asText()
-        };
-        String[] actualMessage = {
-                page.getAcademicDegreeNameError(),
-                page.getAcademicDegreeLevelError()
-        };
-        Assert.assertEquals(actualMessage[0], expectedMessage[0], "Thông báo lỗi trường Tên không khớp");
-        Assert.assertEquals(actualMessage[1], expectedMessage[1], "Thông báo lỗi trường Cấp độ không khớp");
+        String expected = output.get("name-error").asText();
+        String actual = page.getAcademicDegreeNameError();
+        Assert.assertEquals(actual, expected, "Thông báo lỗi trường Tên không khớp");
 
         page.clickCancelButton();
 
@@ -107,7 +100,7 @@ public class EditAcademicDegreeTest extends BaseTest {
         Assert.assertEquals(after[2], before[2], "Cấp độ không khớp");
     }
 
-    // TC04: Nhập tên học hàm, học vị có khoảng trắng
+    // TC04: Tên học hàm, học vị là khoảng trắng
     @Test
     public void TC04_NameFieldWhiteSpace() {
         inputs = getInput("TC04");
@@ -136,11 +129,40 @@ public class EditAcademicDegreeTest extends BaseTest {
         Assert.assertEquals(after[2], before[2], "Cấp độ không khớp");
     }
 
-    // TC05: Nhập cấp độ học hàm, học vị bé hơn 1
+    // TC05: Cấp độ học hàm, học vị bỏ trống
     @Test
-    public void TC05_LevelFieldLowerThanOne() {
+    public void TC05_LevelBlank() {
         inputs = getInput("TC05");
         output = getOutput("TC05");
+
+        // Tìm kiếm hàng cần cập nhật
+        page.searchTable(inputs[0]);
+        WebElement row = page.getRow(inputs[0]);
+        String[] before = page.getRowData(row);
+
+        // Thực hiện cập nhật học hàm, học vị
+        page.performEditAcademicDegree(inputs);
+
+        // Kiểm tra thông báo lỗi
+        String expected = output.get("level-error").asText();
+        String actual = page.getAcademicDegreeLevelError();
+        Assert.assertEquals(actual, expected, "Thông báo lỗi trường Cấp độ không khớp");
+
+        page.clickCancelButton();
+
+        // Kiểm tra xem hàng có bị thay đổi không
+        page.searchTable(inputs[0]);
+        String[] after = page.getRowData(row);
+        Assert.assertEquals(after[0], before[0], "ID không khớp");
+        Assert.assertEquals(after[1], before[1], "Tên không khớp");
+        Assert.assertEquals(after[2], before[2], "Cấp độ không khớp");
+    }
+
+    // TC06: Cấp độ học hàm, học vị bé hơn 1
+    @Test
+    public void TC06_LevelFieldLowerThanOne() {
+        inputs = getInput("TC06");
+        output = getOutput("TC06");
 
         // Tìm kiếm hàng cần cập nhật
         page.searchTable(inputs[0]);

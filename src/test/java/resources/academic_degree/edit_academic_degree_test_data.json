@@ -21,11 +21,10 @@
         "input": {
             "id": "test1",
             "name": "",
-            "level": ""
+            "level": "3"
         },
         "output": {
-            "name-error": "Bạn chưa nhập tên học hàm, học vị",
-            "level-error": "Bạn chưa nhập thứ tự"
+            "name-error": "Bạn chưa nhập tên học hàm, học vị"
         }
     },
     "TC04": {
@@ -41,7 +40,17 @@
     "TC05": {
         "input": {
             "id": "test1",
-            "name": "test1",
+            "name": "test5",
+            "level": ""
+        },
+        "output": {
+            "level-error": "Bạn chưa nhập thứ tự"
+        }
+    },
+    "TC06": {
+        "input": {
+            "id": "test1",
+            "name": "test6",
             "level": "0"
         },
         "output": {

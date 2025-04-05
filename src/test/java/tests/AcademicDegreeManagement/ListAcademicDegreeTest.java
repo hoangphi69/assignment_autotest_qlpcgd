@@ -8,7 +8,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 
 import helpers.BaseTest;
 import helpers.JsonReader;
-import pages.academic_degree.AcademicDegreePage;
+import pages.AcademicDegreePage;
 
 public class ListAcademicDegreeTest extends BaseTest {
     private String input;

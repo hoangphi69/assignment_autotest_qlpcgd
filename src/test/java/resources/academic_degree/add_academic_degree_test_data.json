@@ -19,19 +19,17 @@
     },
     "TC03": {
         "input": {
-            "id": "",
-            "name": "",
-            "level": ""
+            "id": "tét3",
+            "name": "test3",
+            "level": "3"
         },
         "output": {
-            "id-error": "Bạn chưa nhập mã học hàm, học vị",
-            "name-error": "Bạn chưa nhập tên học hàm, học vị",
-            "level-error": "Bạn chưa nhập thứ tự"
+            "id-error": "Chỉ được nhập số-chữ không dấu và không có khoảng trắng!"
         }
     },
     "TC04": {
         "input": {
-            "id": "á đù",
+            "id": "test 4",
             "name": "test4",
             "level": "4"
         },
@@ -41,9 +39,29 @@
     },
     "TC05": {
         "input": {
-            "id": "test5",
-            "name": "   ",
+            "id": "",
+            "name": "test5",
             "level": "5"
+        },
+        "output": {
+            "id-error": "Bạn chưa nhập mã học hàm, học vị"
+        }
+    },
+    "TC06": {
+        "input": {
+            "id": "test6",
+            "name": "",
+            "level": "6"
+        },
+        "output": {
+            "name-error": "Bạn chưa nhập tên học hàm, học vị"
+        }
+    },
+    "TC07": {
+        "input": {
+            "id": "test7",
+            "name": "    ",
+            "level": "7"
         },
         "output": {
             "name-error": "Bạn chưa nhập tên học hàm, học vị"
