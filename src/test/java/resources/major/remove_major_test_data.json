@@ -1,9 +1,36 @@
 {
     "TC01": {
-      "id": "621"
+        "input": {
+            "id": "banana"
+        },
+        "output": {
+            "toast": "Xoá thành công!",
+            "popup-confirm-message": "Bạn có chắc muốn xoá ngành này?"
+        }
     },
     "TC02": {
-      "id": "756"
+        "input": {
+            "id": "banana7"
+        },
+        "output": {
+            "popup-confirm-message": "Bạn có chắc muốn xoá ngành này?"
+        }
+    },
+    "TC03": {
+        "input": {
+            "id": "0000000000001"
+        },
+        "output": {
+            "popup-confirm-message": "Bạn có chắc muốn xoá ngành này?",
+            "popup-error-message": "Không thể xoá do ngành này đã có dữ liệu!"
+        }
+    },
+    "TC04": {
+        "input": {
+            "id": "banana7"
+        },
+        "output": {
+            "popup-error-message": "Dữ liệu không tồn tại!"
+        }
     }
-  }
-  
+}

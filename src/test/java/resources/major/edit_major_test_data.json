@@ -1,39 +1,66 @@
 {
     "TC01": {
-      "id": "0402111",
-      "name": "CNTT ver01",
-      "abbrev": "IT ver01",
-      "program": "Tiêu chuẩn"
+        "input": {
+            "id": "banana",
+            "name": "Edited Banana",
+            "abbrev": "banana1",
+            "program": "Đặc biệt"
+        },
+        "output": {
+            "toast": "Cập nhật thành công!"
+        }
     },
     "TC02": {
-      "id": "0402111",
-      "name": "",
-      "abbrev": "IT ver03",
-      "program": "Tiêu chuẩn"
+        "input": {
+            "id": "banana",
+            "name": "Editing Banana",
+            "abbrev": "banana2",
+            "program": "Đặc biệt"
+        },
+        "output": {}
     },
     "TC03": {
-      "id": "0402111",
-      "name": "CNTT ver04",
-      "abbrev": "",
-      "program": "Tiêu chuẩn"
+        "input": {
+            "id": "banana",
+            "name": "",
+            "abbrev": "banana3",
+            "program": "Đặc biệt"
+        },
+        "output": {
+            "name-error": "Bạn chưa nhập tên ngành"
+        }
     },
     "TC04": {
-      "id": "",
-      "name": "CNTT ver05",
-      "abbrev": "IT ver05",
-      "program": "Tiêu chuẩn"
+        "input": {
+            "id": "banana",
+            "name": "      ",
+            "abbrev": "banana4",
+            "program": "Đặc biệt"
+        },
+        "output": {
+            "name-error": "Bạn chưa nhập tên ngành"
+        }
     },
     "TC05": {
-      "id": "0402111",
-      "name": "CNTT ver06",
-      "abbrev": "IT ver06",
-      "program": "Tiêu chuẩn"
+        "input": {
+            "id": "banana",
+            "name": "banana5",
+            "abbrev": "",
+            "program": "Đặc biệt"
+        },
+        "output": {
+            "abbrev-error": "Bạn chưa nhập tên viết tắt của ngành"
+        }
     },
     "TC06": {
-      "id": "0402111",
-      "name": "CNTT ver07",
-      "abbrev": "IT ver07",
-      "program": "Tiêu chuẩn"
+        "input": {
+            "id": "banana",
+            "name": "banana6",
+            "abbrev": "         ",
+            "program": "Đặc biệt"
+        },
+        "output": {
+            "abbrev-error": "Bạn chưa nhập tên viết tắt của ngành"
+        }
     }
-  }
-  
+}

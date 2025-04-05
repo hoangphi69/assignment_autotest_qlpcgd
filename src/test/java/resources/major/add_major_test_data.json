@@ -1,44 +1,77 @@
 {
-  "TC01": {
-    "id": "0402111",
-    "name": "Phòng chống code thuật hắc ám",
-    "abbrev": "G13",
-    "program": "Đặc biệt"
-  },
-  "TC02": {
-    "id": "0402112",
-    "name": "Code tân thủ",
-    "abbrev": "Rubicon",
-    "program": "Đặc biệt"
-  },
-  "TC03": {
-    "id": "Práise",
-    "name": "Coder hắc ám",
-    "abbrev": "Git Gud",
-    "program": "Đặc biệt"
-  },
-  "TC04": {
-    "id": "Praise the Sun",
-    "name": "100 câu truyện cười về code",
-    "abbrev": "Git Gud",
-    "program": "Đặc biệt"
-  },
-  "TC05": {
-    "id": " ",
-    "name": "Code là đâu, Bug là ai?",
-    "abbrev": "Git Gud",
-    "program": "Đặc biệt"
-  },
-  "TC06": {
-    "id": "0402116",
-    "name": "",
-    "abbrev": "Git Code or Git Bug",
-    "program": "Đặc biệt"
-  },
-  "TC07": {
-    "id": "0402117",
-    "name": "git gud",
-    "abbrev": "",
-    "program": "Đặc biệt"
-  }
+    "TC01": {
+        "input": {
+            "id": "banana",
+            "name": "Banana",
+            "abbrev": "B",
+            "program": "Đặc biệt"
+        },
+        "output": {
+            "toast": "Lưu thành công!"
+        }
+    },
+    "TC02": {
+        "input": {
+            "id": "banana2",
+            "name": "Banana",
+            "abbrev": "B",
+            "program": "Đặc biệt"
+        },
+        "output": {}
+    },
+    "TC03": {
+        "input": {
+            "id": "Bânna",
+            "name": "Banana",
+            "abbrev": "B",
+            "program": "Đặc biệt"
+        },
+        "output": {
+            "id-error": "Chỉ được nhập số-chữ không dấu và không có khoảng trắng!"
+        }
+    },
+    "TC04": {
+        "input": {
+            "id": "Ba na na",
+            "name": "Banana",
+            "abbrev": "B",
+            "program": "Đặc biệt"
+        },
+        "output": {
+            "id-error": "Chỉ được nhập số-chữ không dấu và không có khoảng trắng!"
+        }
+    },
+    "TC05": {
+        "input": {
+            "id": "",
+            "name": "Banana",
+            "abbrev": "B",
+            "program": "Đặc biệt"
+        },
+        "output": {
+            "id-error": "Bạn chưa nhập mã ngành"
+        }
+    },
+    "TC06": {
+        "input": {
+            "id": "banana6",
+            "name": "",
+            "abbrev": "B",
+            "program": "Đặc biệt"
+        },
+        "output": {
+            "name-error": "Bạn chưa nhập tên ngành"
+        }
+    },
+    "TC07": {
+        "input": {
+            "id": "banana7",
+            "name": "     ",
+            "abbrev": "B",
+            "program": "Đặc biệt"
+        },
+        "output": {
+            "name-error": "Bạn chưa nhập tên ngành"
+        }
+    }
 }
