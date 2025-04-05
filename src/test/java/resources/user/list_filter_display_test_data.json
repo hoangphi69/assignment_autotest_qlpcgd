@@ -1,0 +1,17 @@
+{
+    "TC01": {
+        "input": "Mã giảng viên"
+    },
+    "TC02": {
+        "input": ["Mã giảng viên", "Tên giảng viên", "Email", "Loại", "Role"]
+    },
+    "TC03": {
+        "input": "Chưa phân quyền"
+    },
+    "TC04": {
+        "input": "Giảng viên"
+    },
+    "TC05": {
+        "input": "BCN khoa"
+    }
+}

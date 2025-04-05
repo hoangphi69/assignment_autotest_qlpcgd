@@ -1,0 +1,36 @@
+{
+    "TC01": {
+        "input": {
+            "id": "0301"
+        },
+        "output": {
+            "toast": "Xoá thành công!",
+            "popup-confirm-message": "Bạn có chắc muốn xoá người dùng này?"
+        }
+    },
+    "TC02": {
+        "input": {
+            "id": "0302"
+        },
+        "output": {
+            "popup-confirm-message": "Bạn có chắc muốn xoá người dùng này?"
+        }
+    },
+    "TC03": {
+        "input": {
+            "id": "9999999"
+        },
+        "output": {
+            "popup-confirm-message": "Bạn có chắc muốn xoá người dùng này?",
+            "popup-error-message": "Không thể xoá do người dùng này đã có dữ liệu!"
+        }
+    },
+    "TC04": {
+        "input": {
+            "id": "0302"
+        },
+        "output": {
+            "popup-error-message": "Dữ liệu không tồn tại!"
+        }
+    }
+}

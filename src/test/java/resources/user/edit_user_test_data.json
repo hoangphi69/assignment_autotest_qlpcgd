@@ -1,44 +1,72 @@
 {
-    "TC01" : {
-        "id": "F0505TC01",
-        "name" : "Gitgud",
-        "email" : "Gitgud.123456789012@vanlanguni.vn",
-        "type" : "Thỉnh giảng",
-        "role" : "Giảng viên"
+    "TC01": {
+        "input": {
+            "id": "0301",
+            "name": "Teni",
+            "email": "teni.123456789012@vanlanguni.vn",
+            "type": "Cơ hữu",
+            "role" : "Bộ môn"
+        },
+        "output": {
+            "toast": "Cập nhật thành công!"
+        }
     },
-    "TC02" : {
-        "id": "F0505TC01",
-        "name" : "Gitgud",
-        "email" : "Gitgud.123456789012@vanlanguni.vn",
-        "type" : "Thỉnh giảng",
-        "role" : "Giảng viên"
+    "TC02": {
+        "input": {
+            "id": "0301",
+            "name": "Liem",
+            "email": "liem.123456789012@vanlanguni.vn",
+            "type": "Thỉnh giảng",
+            "role" : "BCN khoa"          
+        },
+        "output": {}
     },
-    "TC03" : {
-        "id": "F0505TC03",
-        "name" : "",
-        "email" : "Gitgud.123456789012@vanlanguni.vn",
-        "type" : "Thỉnh giảng",
-        "role" : "Giảng viên"
+    "TC03": {
+        "input": {
+            "id": "0301",
+            "name": "",
+            "email": "name03.123456789012@vanlanguni.vn",
+            "type": "Cơ hữu",
+            "role" : "Bộ môn"
+        },
+        "output": {
+            "name-error": "Bạn chưa nhập tên giảng viên"
+        }
     },
-    "TC04" : {
-        "id": "F0505TC01",
-        "name" : "Gitgud",
-        "email" : "",
-        "type" : "Thỉnh giảng",
-        "role" : "Giảng viên"
+    "TC04": {
+        "input": {
+            "id": "0301",
+            "name": "@FUMO",
+            "email": "fumo.123456789012@vanlanguni.vn",
+            "type": "Thỉnh giảng",
+            "role" : "BCN khoa" 
+        },
+        "output": {
+            "name-error": "Chỉ được nhập số-chữ!"
+        }
     },
-    "TC05" : {
-        "id": "F0505TC01",
-        "name" : "Gitgud",
-        "email" : "Gitgud.123456789012@vanlanguni.vn",
-        "type" : "",
-        "role" : "Giảng viên"
+    "TC05": {
+        "input": {
+            "id": "0301",
+            "name": "kowanu",
+            "email": " ",
+            "type": "Cơ hữu",
+            "role" : "Bộ môn"
+        },
+        "output": {
+            "email-error": "Bạn chưa nhập Email"
+        }
     },
-    "TC06" : {
-        "id": "F0505TC01",
-        "name" : "Gitgud",
-        "email" : "Gitgud.123456789012@vanlanguni.vn",
-        "type" : "Thỉnh giảng",
-        "role" : ""
+    "TC06": {
+        "input": {
+            "id": "0301",
+            "name": "kowanu",
+            "email": "teni@vanlanguni.vn",
+            "type": "Cơ hữu",
+            "role" : "Bộ môn"
+        },
+        "output": {
+            "email-error": "Vui lòng nhập email Văn Lang hợp lệ!"
+        }
     }
 }

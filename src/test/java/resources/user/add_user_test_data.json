@@ -1,44 +1,83 @@
 {
-    "TC01" : {
-        "id": "F0504TC01",
-        "name" : "gitGud",
-        "email" : "gitGud.123456789012@vanlanguni.vn",
-        "type" : "Cơ hữu",
-        "role" : "BCN khoa"
+    "TC01": {
+        "input": {
+            "id": "0301",
+            "name": "Teni",
+            "email": "teni.123456789012@vanlanguni.vn",
+            "type": "Cơ hữu",
+            "role" : "Bộ môn"
+        },
+        "output": {
+            "toast": "Lưu thành công!"
+        }
     },
-    "TC02" : {
-        "id": "F0504TC01",
-        "name" : "gitGud",
-        "email" : "gitGud.123456789012@vanlanguni.vn",
-        "type" : "Cơ hữu",
-        "role" : "BCN khoa"
+    "TC02": {
+        "input": {
+            "id": "0302",
+            "name": "Liem",
+            "email": "liem.123456789012@vanlanguni.vn",
+            "type": "Thỉnh giảng",
+            "role" : "BCN khoa"          
+        },
+        "output": {}
     },
-    "TC03" : {
-        "id": "F0504TC03",
-        "name" : "",
-        "email" : "gitGud.123456789012@vanlanguni.vn",
-        "type" : "Cơ hữu",
-        "role" : "BCN khoa"
+    "TC03": {
+        "input": {
+            "id": "Práise",
+            "name": "name 03",
+            "email": "name03.123456789012@vanlanguni.vn",
+            "type": "Cơ hữu",
+            "role" : "Bộ môn"
+        },
+        "output": {
+            "id-error": "Chỉ được nhập số-chữ không dấu và không có khoảng trắng!"
+        }
     },
-    "TC04" : {
-        "id": "F0504TC04",
-        "name" : "gitGud",
-        "email" : "",
-        "type" : "Cơ hữu",
-        "role" : "BCN khoa"
+    "TC04": {
+        "input": {
+            "id": "Quan Lao Gia",
+            "name": "Quan Lao Gia",
+            "email": "quanlaogia.123456789012@vanlanguni.vn",
+            "type": "Thỉnh giảng",
+            "role" : "BCN khoa" 
+        },
+        "output": {
+            "id-error": "Chỉ được nhập số-chữ không dấu và không có khoảng trắng!"
+        }
     },
-    "TC05" : {
-        "id": "F0504TC05",
-        "name" : "gitGud",
-        "email" : "gitGud.123456789012@vanlanguni.vn",
-        "type" : "",
-        "role" : "BCN khoa"
+    "TC05": {
+        "input": {
+            "id": "",
+            "name": "kowanu",
+            "email": "kowanu.123456789012@vanlanguni.vn",
+            "type": "Cơ hữu",
+            "role" : "Bộ môn"
+        },
+        "output": {
+            "id-error": "Bạn chưa nhập mã giảng viên"
+        }
     },
-    "TC06" : {
-        "id": "F0504TC06",
-        "name" : "gitGud",
-        "email" : "gitGud.123456789012@vanlanguni.vn",
-        "type" : "Cơ hữu",
-        "role" : ""
+    "TC06": {
+        "input": {
+            "id": "0306",
+            "name": "",
+            "email": "nothing.123456789012@vanlanguni.vn",
+            "type": "Cơ hữu",
+            "role" : "Bộ môn"
+        },
+        "output": {
+            "name-error": "Bạn chưa nhập tên giảng viên"
+        }
+    },
+    "TC07": {
+        "input": {
+            "id": "0307",
+            "email": "tien.123456789012@vanlanguni.vn",
+            "type": "Thỉnh giảng",
+            "role" : "BCN khoa" 
+        },
+        "output": {
+            "email-error": "Email đã được sử dụng"
+        }
     }
 }

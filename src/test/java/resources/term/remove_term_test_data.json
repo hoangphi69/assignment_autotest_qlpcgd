@@ -1,9 +1,36 @@
 {
-    "TC01" : {
-        "id": "111"
+    "TC01": {
+        "input": {
+            "id": "111"
+        },
+        "output": {
+            "toast": "Xoá thành công!",
+            "popup-confirm-message": "Bạn có chắc muốn xoá học kỳ này?"
+        }
     },
-
-    "TC02" : {
-        "id": "555"
+    "TC02": {
+        "input": {
+            "id": "999"
+        },
+        "output": {
+            "popup-confirm-message": "Bạn có chắc muốn xoá học kỳ này?"
+        }
+    },
+    "TC03": {
+        "input": {
+            "id": "999"
+        },
+        "output": {
+            "popup-confirm-message": "Bạn có chắc muốn xoá học kỳ này?",
+            "popup-error-message": "Không thể xoá do học kỳ này đã có dữ liệu!"
+        }
+    },
+    "TC04": {
+        "input": {
+            "id": "111"
+        },
+        "output": {
+            "popup-error-message": "Dữ liệu không tồn tại!"
+        }
     }
 }

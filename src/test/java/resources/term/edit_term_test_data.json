@@ -1,55 +1,80 @@
 {
     "TC01" : {
-        "id": "111",
-        "starYear" : "2025",
-        "endYear" : "2027",
-        "starWeek" : "1",
-        "month" : "Tháng năm",
-        "year" : "2026",
-        "lesson" : "15",
-        "class" : "30"
+        "input" : {
+            "id": "111",
+            "startYear" : "2026",
+            "endYear" : "2030",
+            "startWeek" : "1",
+            "month" : "Tháng năm",
+            "year" : "2026",
+            "lesson" : "15",
+            "class" : "30"
+        },
+        "output": {
+            "toast": "Lưu thành công!"
+        }
     },
-
     "TC02" : {
-        "id": "111",
-        "starYear" : "2028",
-        "endYear" : "2026",
-        "starWeek" : "1",
-        "month" : "Tháng năm",
-        "year" : "2026",
-        "lesson" : "15",
-        "class" : "30"
+        "input" : {
+            "id": "111",
+            "startYear" : "2025",
+            "endYear" : "2028",
+            "startWeek" : "5",
+            "month" : "Tháng năm",
+            "year" : "2026",
+            "lesson" : "19",
+            "class" : "35"
+        },
+        "output": {}
     },
     "TC03" : {
-        "id": "111",
-        "starYear" : "2025",
-        "endYear" : "2026",
-        "starWeek" : "-5",
-        "month" : "Tháng năm",
-        "year" : "2026",
-        "lesson" : "15",
-        "class" : "30"
+        "input" : {
+            "id": "111",
+            "startYear" : "2025",
+            "endYear" : "2028",
+            "startWeek" : " ",
+            "month" : "Tháng năm",
+            "year" : "2026",
+            "lesson" : " ",
+            "class" : " "
+        },
+        "output": {
+            "start_week-error": "Vui lòng nhập lớn hơn hoặc bằng 1",
+            "start_date-error": "Bạn chưa chọn ngày bắt đầu",
+            "max_lesson-error": "Vui lòng nhập lớn hơn hoặc bằng 3",
+            "max_class-error" : "Vui lòng nhập lớn hơn hoặc bằng 1"
+        }
     },
-
     "TC04" : {
-        "id": "114",
-        "starYear" : "2025",
-        "endYear" : "2026",
-        "starWeek" : "1",
-        "month" : "Tháng năm",
-        "year" : "2026",
-        "lesson" : "-20",
-        "class" : "30"
+        "input" : {
+            "id": "111",
+            "startYear" : "2025",
+            "endYear" : "2026",
+            "startWeek" : "-5",
+            "month" : "Tháng năm",
+            "year" : "2026",
+            "lesson" : "-5",
+            "class" : "-10"
+        },
+        "output": {
+            "start_week-error": "Vui lòng nhập lớn hơn hoặc bằng 1",
+            "max_lesson-error": "Vui lòng nhập lớn hơn hoặc bằng 3",
+            "max_class-error" : "Vui lòng nhập lớn hơn hoặc bằng 1"
+        }
     },
-
     "TC05" : {
-        "id": "115",
-        "starYear" : "2025",
-        "endYear" : "2026",
-        "starWeek" : "-5",
-        "month" : "Tháng năm",
-        "year" : "2026",
-        "lesson" : "15",
-        "class" : "-30"
+        "input" : {
+            "id": "0302115",
+            "startYear" : "2025",
+            "endYear" : "2024",
+            "startWeek" : "5",
+            "month" : "Tháng năm",
+            "year" : "2026",
+            "lesson" : "15",
+            "class" : "30"
+        },
+        "output": {
+            "end_year-error": "Năm kết thúc không thể nhỏ hơn năm bắt đầu!"
+        }
     }
 }
