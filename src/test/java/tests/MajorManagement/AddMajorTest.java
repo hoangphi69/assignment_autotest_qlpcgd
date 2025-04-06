@@ -169,7 +169,7 @@ public class AddMajorTest extends BaseTest {
     // Kiểm tra thông báo lỗi
     String expected = output.get("name-error").asText();
     String actual = page.getMajorNameError();
-    Assert.assertEquals(actual, expected, "Thông báo lỗi trường ID không khớp");
+    Assert.assertEquals(actual, expected, "Thông báo lỗi trường Tên không khớp");
 
     page.clickMajorCancelButton();
 
