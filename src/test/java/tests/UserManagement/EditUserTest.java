@@ -11,51 +11,39 @@ import helpers.BaseTest;
 import helpers.JsonReader;
 import pages.UserPage;
 
-public class EditUserTest extends BaseTest{
-    private String[] inputs;
-    private JsonNode output;
-    private UserPage page;
-    private static final String FILE_NAME = "user/edit_user_test_data.json";
+public class EditUserTest extends BaseTest {
+  private String[] inputs;
+  private JsonNode output;
+  private UserPage page;
+  private static final String FILE_NAME = "user/edit_user_test_data.json";
 
-    // Lấy input từ test data
-    private String[] getInput(String key) {
-      JsonNode data = JsonReader.getTestData(FILE_NAME, key).get("input");
-      return new String[] {
-          data.get("id").asText(),
-          data.get("name").asText(),
-          data.get("email").asText(),
-          data.get("type").asText(),
-          data.get("role").asText()
-      };
-    }
+  // Lấy input từ test data
+  private String[] getInput(String key) {
+    JsonNode data = JsonReader.getTestData(FILE_NAME, key).get("input");
+    return new String[] {
+        data.get("id").asText(),
+        data.get("name").asText(),
+        data.get("email").asText(),
+        data.get("type").asText(),
+        data.get("role").asText()
+    };
+  }
 
-    // Lấy output từ test data
-    private JsonNode getOutput(String key) {
-      JsonNode data = JsonReader.getTestData(FILE_NAME, key).get("output");
-      return data;
-    }
+  // Lấy output từ test data
+  private JsonNode getOutput(String key) {
+    JsonNode data = JsonReader.getTestData(FILE_NAME, key).get("output");
+    return data;
+  }
 
-    // setup
-    @BeforeMethod
-    public void initialize() {
-      page = new UserPage(driver);
-      driver.get(BASE_URL + "/User");
-      delay(2000);
-    }
+  // setup
+  @BeforeMethod
+  public void initialize() {
+    page = new UserPage(driver);
+    driver.get(BASE_URL + "/User");
+    delay(2000);
+  }
 
-    // Hàm lấy dữ liệu test từ JSON
-    private String[] getTestData(String testCaseID) {
-      JsonNode data = JsonReader.getTestData(FILE_NAME, testCaseID);
-      return new String[]{
-          data.get("id").asText(),
-          data.get("name").asText(),
-          data.get("email").asText(),
-          data.get("type").asText(),
-          data.get("role").asText()
-      };
-    }
-
-    // TC01: Cập nhật thành công
+  // TC01: Cập nhật thành công
   @Test
   public void TC01_EditSuccess() {
     inputs = getInput("TC01");
@@ -84,7 +72,7 @@ public class EditUserTest extends BaseTest{
     Assert.assertEquals(actuals[4], expected[4], "Role giảng viên không khớp");
   }
 
-    // TC02: Chỉnh sửa rồi huỷ
+  // TC02: Chỉnh sửa rồi huỷ
   @Test
   public void TC02_AddAndCancel() {
     inputs = getInput("TC02");
@@ -115,7 +103,7 @@ public class EditUserTest extends BaseTest{
     Assert.assertEquals(actuals[4], expected[4], "Role giảng viên không khớp");
   }
 
-    // TC03: Tên ngành bỏ trống
+  // TC03: Tên ngành bỏ trống
   @Test
   public void TC03_NameBlank() {
     inputs = getInput("TC03");
@@ -146,7 +134,7 @@ public class EditUserTest extends BaseTest{
     Assert.assertEquals(after[4], before[4], "Role giảng viên không khớp");
   }
 
-    // TC04: Tên gv ko đúng định dạng
+  // TC04: Tên gv ko đúng định dạng
   @Test
   public void TC04_NameFailed() {
     inputs = getInput("TC04");
@@ -177,7 +165,7 @@ public class EditUserTest extends BaseTest{
     Assert.assertEquals(after[4], before[4], "Role giảng viên không khớp");
   }
 
-    // TC05: email bỏ trống
+  // TC05: email bỏ trống
   @Test
   public void TC05_EmailBlank() {
     inputs = getInput("TC05");
@@ -208,7 +196,7 @@ public class EditUserTest extends BaseTest{
     Assert.assertEquals(after[4], before[4], "Role giảng viên không khớp");
   }
 
-    // TC06: Email không đúng định dạng
+  // TC06: Email không đúng định dạng
   @Test
   public void TC06_AbbrevWhiteSpace() {
     inputs = getInput("TC06");
