@@ -1,7 +1,7 @@
 {
     "TC01": {
         "input": {
-            "id": "111"
+            "id": "699"
         },
         "output": {
             "toast": "Xoá thành công!",
@@ -27,7 +27,7 @@
     },
     "TC04": {
         "input": {
-            "id": "111"
+            "id": "923"
         },
         "output": {
             "popup-error-message": "Dữ liệu không tồn tại!"
