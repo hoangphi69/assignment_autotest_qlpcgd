@@ -23,8 +23,8 @@
         },
         "output": {}
     },
-    "TC03" : {
-        "input" : {
+    "TC03": {
+        "input": {
             "id": " ",
             "startYear" : "2025",
             "endYear" : "2028",
@@ -40,8 +40,8 @@
             "max_class-error" : "Bạn chưa nhập số lớp tối đa"
         }
     },
-    "TC04" : {
-        "input" : {
+    "TC04": {
+        "input": {
             "id": "ABC",
             "startYear" : "2025",
             "endYear" : "2026",

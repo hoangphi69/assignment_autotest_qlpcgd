@@ -112,7 +112,7 @@ public class RemoveMajorTest extends BaseTest {
     page.clickPopupConfirmButton();
 
     // Tab 1: Xoá ngành học đã bị xoá trước đó
-    driver.switchTo().window(tabs.get(1));
+    driver.switchTo().window(tabs.get(0));
     page.clickRemoveMajor(input);
     page.clickPopupConfirmButton();
 
