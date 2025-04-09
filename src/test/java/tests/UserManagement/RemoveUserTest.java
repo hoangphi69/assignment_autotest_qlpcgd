@@ -18,7 +18,7 @@ public class RemoveUserTest extends BaseTest{
 private String input;
   private JsonNode output;
   private UserPage page;
-  private static final String FILE_NAME = "User/remove_user_test_data.json";
+  private static final String FILE_NAME = "user/remove_user_test_data.json";
 
   // Lấy input từ test data
   private String getInput(String key) {
@@ -36,7 +36,7 @@ private String input;
   @BeforeMethod
   public void initialize() {
     page = new UserPage(driver);
-    driver.get(BASE_URL + "/Major");
+    driver.get(BASE_URL + "/User");
     delay(2000);
   }
 

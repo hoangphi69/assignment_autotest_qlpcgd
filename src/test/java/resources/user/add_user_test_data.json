@@ -35,9 +35,9 @@
     },
     "TC04": {
         "input": {
-            "id": "Quan Lao Gia",
-            "name": "Quan Lao Gia",
-            "email": "quanlaogia.123456789012@vanlanguni.vn",
+            "id": "Tran Kwan",
+            "name": "Kwan",
+            "email": "kwan.123456789012@vanlanguni.vn",
             "type": "Thỉnh giảng",
             "role" : "BCN khoa" 
         },
@@ -72,6 +72,7 @@
     "TC07": {
         "input": {
             "id": "0307",
+            "name" : "Tien",
             "email": "tien.123456789012@vanlanguni.vn",
             "type": "Thỉnh giảng",
             "role" : "BCN khoa" 

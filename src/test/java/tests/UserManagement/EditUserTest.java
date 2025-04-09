@@ -115,7 +115,7 @@ public class EditUserTest extends BaseTest{
     Assert.assertEquals(actuals[4], expected[4], "Role giảng viên không khớp");
   }
 
-    // TC03: Tên ngành bỏ trống
+    // TC03: Tên người dùng bỏ trống
   @Test
   public void TC03_NameBlank() {
     inputs = getInput("TC03");

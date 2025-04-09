@@ -397,7 +397,7 @@ public class UserPage extends BasePage{
 
     // Thực hiện xoá ngành học
     public void clickRemoveUser(String id) {
-        searchID(id);
+        searchTable(id);
         WebElement row = getRow(id);
         if (row == null)
             return;

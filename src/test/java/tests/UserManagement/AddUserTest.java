@@ -163,7 +163,7 @@ public class AddUserTest extends BaseTest{
     Assert.assertTrue(row == null, "Hàng không được thêm nhưng vẫn tìm thấy với ID: " + inputs[0]);
   }
 
-    // TC06: Tên ngành bỏ trống
+    // TC06: Tên bỏ trống
   @Test
   public void TC06_NameBlank() {
     inputs = getInput("TC06");

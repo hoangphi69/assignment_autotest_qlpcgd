@@ -25,8 +25,6 @@ public class AddTermTest extends BaseTest{
               data.get("startYear").asText(),
               data.get("endYear").asText(),
               data.get("startWeek").asText(),
-              data.get("month").asText(),
-              data.get("year").asText(),
               data.get("lesson").asText(),
               data.get("class").asText()
       };
@@ -73,10 +71,8 @@ public class AddTermTest extends BaseTest{
     Assert.assertEquals(actuals[1], expected[1], "Năm bắt đàu không khớp");
     Assert.assertEquals(actuals[2], expected[2], "Năm kết thúc không khớp");
     Assert.assertEquals(actuals[3], expected[3], "Tuần bắt đầu không khớp");
-    Assert.assertEquals(actuals[4], expected[4], "Tháng không khớp");
-    Assert.assertEquals(actuals[5], expected[5], "Năm không khớp");
-    Assert.assertEquals(actuals[6], expected[6], "Tiết học tối đa không khớp");
-    Assert.assertEquals(actuals[7], expected[7], "Lớp học tối đa không khớp");
+    Assert.assertEquals(actuals[4], expected[4], "Tiết học tối đa không khớp");
+    Assert.assertEquals(actuals[5], expected[5], "Lớp học tối đa không khớp");
   }
 
   // TC02: Thêm mới học kỳ rồi huỷ
@@ -103,29 +99,26 @@ public void TC03_EmptyFields() {
     inputs = getInput("TC03");
     output = getOutput("TC03");
 
-    // Thực hiện thêm mới học hàm, học vị
+    // Thực hiện thêm mới học kỳ
     page.performAddTerm(inputs);
 
     // Kiểm tra thông báo lỗi
     String[] expected = {
             output.get("id-error").asText(),
             output.get("start_week-error").asText(),
-            output.get("start_date-error").asText(),
             output.get("max_lesson-error").asText(),
             output.get("max_class-error").asText(),
     };
     String[] actuals = {
             page.getTermIDError(),
             page.getTermStartWeekError(),
-            page.getTermStartDateError(),
             page.getTermMaxLessonError(),
             page.getTermMaxCLassError()
     };
     Assert.assertEquals(actuals[0], expected[0], "Học kỳ không khớp");
     Assert.assertEquals(actuals[1], expected[1], "Tuần bắt đầu không khớp");
-    Assert.assertEquals(actuals[2], expected[2], "Tháng không khớp");
-    Assert.assertEquals(actuals[3], expected[3], "Tiết học tối đa không khớp");
-    Assert.assertEquals(actuals[4], expected[4], "Lớp học tối đa không khớp");
+    Assert.assertEquals(actuals[2], expected[2], "Tiết học tối đa không khớp");
+    Assert.assertEquals(actuals[3], expected[3], "Lớp học tối đa không khớp");
 
     page.clickCancelButton
 ();

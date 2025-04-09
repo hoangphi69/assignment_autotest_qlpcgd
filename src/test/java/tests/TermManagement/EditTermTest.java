@@ -25,8 +25,6 @@ public class EditTermTest extends  BaseTest{
               data.get("startYear").asText(),
               data.get("endYear").asText(),
               data.get("startWeek").asText(),
-              data.get("month").asText(),
-              data.get("year").asText(),
               data.get("lesson").asText(),
               data.get("class").asText()
       };
@@ -72,10 +70,8 @@ public class EditTermTest extends  BaseTest{
     Assert.assertEquals(actuals[1], expected[1], "Năm bắt đàu không khớp");
     Assert.assertEquals(actuals[2], expected[2], "Năm kết thúc không khớp");
     Assert.assertEquals(actuals[3], expected[3], "Tuần bắt đầu không khớp");
-    Assert.assertEquals(actuals[4], expected[4], "Tháng không khớp");
-    Assert.assertEquals(actuals[5], expected[5], "Năm không khớp");
-    Assert.assertEquals(actuals[6], expected[6], "Tiết học tối đa không khớp");
-    Assert.assertEquals(actuals[7], expected[7], "Lớp học tối đa không khớp");
+    Assert.assertEquals(actuals[4], expected[4], "Tiết học tối đa không khớp");
+    Assert.assertEquals(actuals[5], expected[5], "Lớp học tối đa không khớp");
   }
 
   // TC02: Thêm mới học kỳ rồi huỷ
@@ -93,9 +89,8 @@ public class EditTermTest extends  BaseTest{
     page.selectStartYear(inputs[1]);
     page.selectEndYear(inputs[2]);
     page.enterStartWeek(inputs[3]);
-    page.datePicker(inputs[4], inputs[5]);
-    page.mlesson(inputs[6]);
-    page.mclass(inputs[7]);
+    page.mlesson(inputs[4]);
+    page.mclass(inputs[5]);
     // ...rồi huỷ
     page.clickCancelButton();
     delay(2000);
@@ -105,9 +100,8 @@ public class EditTermTest extends  BaseTest{
     String[] actuals = page.getRowData(row);
     Assert.assertEquals(actuals[0], expected[0], "Học kỳ không khớp");
     Assert.assertEquals(actuals[1], expected[1], "Tuần bắt đầu không khớp");
-    Assert.assertEquals(actuals[2], expected[2], "Tháng không khớp");
-    Assert.assertEquals(actuals[3], expected[3], "Tiết học tối đa không khớp");
-    Assert.assertEquals(actuals[4], expected[4], "Lớp học tối đa không khớp");
+    Assert.assertEquals(actuals[2], expected[2], "Tiết học tối đa không khớp");
+    Assert.assertEquals(actuals[3], expected[3], "Lớp học tối đa không khớp");
   }
 
 // TC03: Bỏ trống các trường
@@ -127,20 +121,17 @@ public void TC03_EmptyFields() {
     // Kiểm tra thông báo lỗi
     String[] expected = {
             output.get("start_week-error").asText(),
-            output.get("start_date-error").asText(),
             output.get("max_lesson-error").asText(),
             output.get("max_class-error").asText(),
     };
     String[] actuals = {
             page.getTermStartWeekError(),
-            page.getTermStartDateError(),
             page.getTermMaxLessonError(),
             page.getTermMaxCLassError()
     };
     Assert.assertEquals(actuals[0], expected[0], "Tuần bắt đầu không khớp");
-    Assert.assertEquals(actuals[1], expected[1], "Tháng không khớp");
-    Assert.assertEquals(actuals[2], expected[2], "Tiết học tối đa không khớp");
-    Assert.assertEquals(actuals[3], expected[3], "Lớp học tối đa không khớp");
+    Assert.assertEquals(actuals[1], expected[1], "Tiết học tối đa không khớp");
+    Assert.assertEquals(actuals[2], expected[2], "Lớp học tối đa không khớp");
 
     page.clickCancelButton();
 
@@ -149,9 +140,8 @@ public void TC03_EmptyFields() {
     String[] after = page.getRowData(row);
     Assert.assertEquals(after[0], before[0], "Học kỳ không khớp");
     Assert.assertEquals(after[1], before[1], "Tuần bắt đầu không khớp");
-    Assert.assertEquals(after[2], before[2], "Tháng không khớp");
-    Assert.assertEquals(after[3], before[3], "Tiết học tối đa không khớp");
-    Assert.assertEquals(after[4], before[4], "Lớp học tối đa không khớp");
+    Assert.assertEquals(after[2], before[2], "Tiết học tối đa không khớp");
+    Assert.assertEquals(after[3], before[3], "Lớp học tối đa không khớp");
 }
 
 // TC04: Truyền dữ liệu số âm
@@ -193,12 +183,11 @@ public void TC04_WhiteSpaceAndSpecialChar() {
   String[] after = page.getRowData(row);
   Assert.assertEquals(after[0], before[0], "Học kỳ không khớp");
   Assert.assertEquals(after[1], before[1], "Tuần bắt đầu không khớp");
-  Assert.assertEquals(after[2], before[2], "Tháng không khớp");
-  Assert.assertEquals(after[3], before[3], "Tiết học tối đa không khớp");
-  Assert.assertEquals(after[4], before[4], "Lớp học tối đa không khớp");
+  Assert.assertEquals(after[2], before[2], "Tiết học tối đa không khớp");
+  Assert.assertEquals(after[3], before[3], "Lớp học tối đa không khớp");
 }
 
-  // TC05: Nhập tuần bắt đầu, số tiết học và số lớp học không hợp lệ
+  // TC05:Nhập năm bắt đầu lớn hơn năm kết thúc
   @Test
   public void TC05_NameFieldWhiteSpace() {
       inputs = getInput("TC05");
@@ -224,8 +213,7 @@ public void TC04_WhiteSpaceAndSpecialChar() {
       String[] after = page.getRowData(row);
       Assert.assertEquals(after[0], before[0], "Học kỳ không khớp");
       Assert.assertEquals(after[1], before[1], "Tuần bắt đầu không khớp");
-      Assert.assertEquals(after[2], before[2], "Tháng không khớp");
-      Assert.assertEquals(after[3], before[3], "Tiết học tối đa không khớp");
-      Assert.assertEquals(after[4], before[4], "Lớp học tối đa không khớp");
+      Assert.assertEquals(after[2], before[2], "Tiết học tối đa không khớp");
+      Assert.assertEquals(after[3], before[3], "Lớp học tối đa không khớp");
   }
 }

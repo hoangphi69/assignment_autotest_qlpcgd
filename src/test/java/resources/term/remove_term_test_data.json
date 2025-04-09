@@ -1,7 +1,7 @@
 {
     "TC01": {
         "input": {
-            "id": "111"
+            "id": "980"
         },
         "output": {
             "toast": "Xoá thành công!",

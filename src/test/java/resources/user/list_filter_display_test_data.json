@@ -6,12 +6,12 @@
         "input": ["Mã giảng viên", "Tên giảng viên", "Email", "Loại", "Role"]
     },
     "TC03": {
-        "input": "Chưa phân quyền"
+        "input": "Tên giảng viên"
     },
     "TC04": {
-        "input": "Giảng viên"
+        "input": "Email"
     },
     "TC05": {
-        "input": "BCN khoa"
+        "input": "Loại"
     }
 }

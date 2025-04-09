@@ -64,6 +64,7 @@ public class ListUserByRoleFilter extends BaseTest{
         boolean result = page.verifyUserRoles(input);
         Assert.assertTrue(result == true, "Có hàng chứa thông tin khác với " + input);
     }
+
     // TC04: chọn filter loại GV
     @Test
     public void TC04_FilterGiangVien() {
@@ -77,6 +78,7 @@ public class ListUserByRoleFilter extends BaseTest{
     }
 
     // TC05: chọn filter loại BCN khoa và refresh kiểm tra tính bất biến
+    @Test
     public void TC05_FilterAndRefresh() {
         input = getInput("TC05");
 

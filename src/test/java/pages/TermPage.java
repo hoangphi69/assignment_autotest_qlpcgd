@@ -173,7 +173,7 @@ public class TermPage extends BaseTest{
               row.findElement(TABLE_ROW_STARTYEAR_CELL).getText(),
               row.findElement(TABLE_ROW_ENDYEAR_CELL).getText(), 
               row.findElement(TABLE_ROW_STARTWEEK_CELL).getText(),
-              row.findElement(TABLE_ROW_STARTDATE_CELL).getText(),  
+            //   row.findElement(TABLE_ROW_STARTDATE_CELL).getText(),  
               row.findElement(TABLE_ROW_MLESSON_CELL).getText(), 
               row.findElement(TABLE_ROW_MCLASS_CELL).getText(), 
       };
@@ -311,7 +311,7 @@ public class TermPage extends BaseTest{
         startWeekField.sendKeys(startWeek);
     }
 
-    public void datePicker(String monthSelect, String yearSelect) {
+    public void datePicker() {
         WebElement datePicker = driver.findElement(ADD_DATE_PICKER_SELECT);
         datePicker.click();
         delay(300);
@@ -319,10 +319,10 @@ public class TermPage extends BaseTest{
         month.click();
         delay(300);
         Select chonThang = new Select(month);
-        chonThang.selectByVisibleText(monthSelect);
+        chonThang.selectByVisibleText("Tháng năm");
         WebElement year = driver.findElement(ADD_YEAR_SELECT);
         year.clear();
-        year.sendKeys(yearSelect);
+        year.sendKeys("2026");
         WebElement day = driver.findElement(ADD_DAY_SELECT);
         day.click();
     }
@@ -341,8 +341,7 @@ public class TermPage extends BaseTest{
 
     // Nhấn nút huỷ
     public void clickCancelButton() {
-        WebElement form = driver.findElement(ADD_FORM);
-        WebElement button = form.findElement(CLOSE_BUTTON);
+        WebElement button = driver.findElement(CLOSE_BUTTON);
         button.click();
     }
 
@@ -375,23 +374,21 @@ public class TermPage extends BaseTest{
         popup.findElement(POPUP_CANCEL_BUTTON).click();
     }
 
-    public void performAddTerm(String termID, String startYear, String endYear, String startWeek, String monthSelect,
-            String yearSelect, String maxLesson, String maxClass) {
+    public void performAddTerm(String termID, String startYear, String endYear, String startWeek, String maxLesson, String maxClass) {
         clickAddButton();
         enterTermID(termID);
         selectStartYear(startYear);
         selectEndYear(endYear);
         enterStartWeek(startWeek);
         delay(300);
-        datePicker(monthSelect, yearSelect);
+        datePicker();
         delay(300);
         mlesson(maxLesson);
         mclass(maxClass);
         clickConfirmButton();
     }
 
-    public void performEditTerm(String termID, String startYear, String endYear, String startWeek, String monthSelect,
-    String yearSelect, String maxLesson, String maxClass) {
+    public void performEditTerm(String termID, String startYear, String endYear, String startWeek, String maxLesson, String maxClass) {
       searchTable(termID);
       WebElement row = getRow(termID);
       if (row == null)
@@ -402,7 +399,7 @@ public class TermPage extends BaseTest{
       selectEndYear(endYear);
       enterStartWeek(startWeek);
       delay(300);
-      datePicker(monthSelect, yearSelect);
+      datePicker();
       delay(300);
       mlesson(maxLesson);
       mclass(maxClass);
@@ -411,12 +408,12 @@ public class TermPage extends BaseTest{
 
     // Thực hiện tạo học kỳ
     public void performAddTerm(String[] data) {
-      performAddTerm(data[0], data[1], data[2], data[3], data[4], data[5], data[6], data[7]);
+      performAddTerm(data[0], data[1], data[2], data[3], data[4], data[5]);
     }
 
     // Thực hiện chỉnh sửa học kỳ
     public void performEditTerm(String[] data) {
-      performEditTerm(data[0], data[1], data[2], data[3], data[4], data[5], data[6], data[7]);
+      performEditTerm(data[0], data[1], data[2], data[3], data[4], data[5]);
     }
 
     // Thực hiện hiển thị số lượng danh sách

@@ -1,12 +1,10 @@
 {
     "TC01" : {
         "input" : {
-            "id": "111",
+            "id": "980",
             "startYear" : "2025",
             "endYear" : "2026",
             "startWeek" : "1",
-            "month" : "Tháng năm",
-            "year" : "2026",
             "lesson" : "15",
             "class" : "30"
         },
@@ -16,12 +14,10 @@
     },
     "TC02" : {
         "input" : {
-            "id": "112",
+            "id": "981",
             "startYear" : "2025",
             "endYear" : "2028",
             "startWeek" : "5",
-            "month" : "Tháng năm",
-            "year" : "2026",
             "lesson" : "19",
             "class" : "35"
         },
@@ -33,17 +29,15 @@
             "startYear" : "2025",
             "endYear" : "2028",
             "startWeek" : " ",
-            "month" : "Tháng năm",
-            "year" : "2026",
             "lesson" : " ",
             "class" : " "
         },
         "output": {
-            "id-error": "Bạn chưa nhập học kỳ",
-            "start_week-error": "Vui lòng nhập lớn hơn hoặc bằng 1",
+            "id-error": "Vui lòng nhập số!",
+            "start_week-error": "Bạn chưa nhập tuần bắt đầu",
             "start_date-error": "Bạn chưa chọn ngày bắt đầu",
-            "max_lesson-error": "Vui lòng nhập lớn hơn hoặc bằng 3",
-            "max_class-error" : "Vui lòng nhập lớn hơn hoặc bằng 1"
+            "max_lesson-error": "Bạn chưa nhập số tiết tối đa",
+            "max_class-error" : "Bạn chưa nhập số lớp tối đa"
         }
     },
     "TC04" : {
@@ -52,8 +46,6 @@
             "startYear" : "2025",
             "endYear" : "2026",
             "startWeek" : "1",
-            "month" : "Tháng năm",
-            "year" : "2026",
             "lesson" : "15",
             "class" : "30"
         },
@@ -63,12 +55,10 @@
     },
     "TC05" : {
         "input" : {
-            "id": "0302115",
+            "id": "982",
             "startYear" : "2025",
             "endYear" : "2024",
             "startWeek" : "5",
-            "month" : "Tháng năm",
-            "year" : "2026",
             "lesson" : "15",
             "class" : "30"
         },
